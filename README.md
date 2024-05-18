@@ -1,1 +1,1 @@
-# CoolFan
+# CoolFan - Simple cooling system interface
