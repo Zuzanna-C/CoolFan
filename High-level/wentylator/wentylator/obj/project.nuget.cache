@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ql9Cg8wMv5JJwl4NAvgi/3xj9yWU7t7GKAc46qS6stsUiCvuNuGrav3/T7rXpkbQxD0MnvQC+540p2YW7t8onQ==",
+  "dgSpecHash": "U7JZpFQ/cd/lxqwZMlDP70cs+sNazHiup0MJ8F/D3YGX+ZrXzMRtd6o1+c5kkOgyphA4jEGtkdqTgqFIQzmNbA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kuba\\Downloads\\wentylator (1)\\wentylator\\wentylator\\wentylator.csproj",
+  "projectFilePath": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wentylator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kuba\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Kuba\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

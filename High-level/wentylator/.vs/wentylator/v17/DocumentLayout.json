@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Kuba\\Downloads\\wentylator (1)\\wentylator\\",
+  "WorkspaceRootPath": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\downloads\\wentylator (1)\\wentylator\\wentylator\\wentylator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\wentylator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\extraclasses\\sensordatafetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\extraclasses\\sensordatafetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SensorDataFetcher.cs",
+              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\ExtraClasses\\SensorDataFetcher.cs",
+              "RelativeDocumentMoniker": "wentylator\\ExtraClasses\\SensorDataFetcher.cs",
+              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\ExtraClasses\\SensorDataFetcher.cs",
+              "RelativeToolTip": "wentylator\\ExtraClasses\\SensorDataFetcher.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAYAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T19:58:54.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "wentylator",
-              "DocumentMoniker": "C:\\Users\\Kuba\\Downloads\\wentylator (1)\\wentylator\\wentylator\\wentylator.csproj",
-              "RelativeDocumentMoniker": "wentylator\\wentylator.csproj",
-              "ToolTip": "C:\\Users\\Kuba\\Downloads\\wentylator (1)\\wentylator\\wentylator\\wentylator.csproj",
-              "RelativeToolTip": "wentylator\\wentylator.csproj",
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "wentylator\\Pages\\Index.cshtml.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAA+wBgAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T19:23:44.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
+              "RelativeToolTip": "wentylator\\Pages\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-18T17:56:11.055Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-18T19:23:39.005Z",
               "EditorCaption": ""
             }
           ]
