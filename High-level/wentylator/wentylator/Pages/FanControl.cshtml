@@ -1,0 +1,14 @@
+﻿@page
+@model wentylator.Pages.FanControl.FanControlIndexModel
+@{
+    ViewData["Title"] = "Sterowanie Wentylatorem";
+}
+
+<h1>Sterowanie Wentylatorem</h1>
+
+<div>
+    <p>Stan wentylatora: @(Model.IsFanOn ? "Włączony" : "Wyłączony")</p>
+    <form method="post">
+        <button name="action" value="toggle" class="btn btn-primary">Przełącz Wentylator</button>
+    </form>
+</div>
