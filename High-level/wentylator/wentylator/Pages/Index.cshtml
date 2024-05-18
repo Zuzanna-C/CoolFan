@@ -1,0 +1,78 @@
+﻿@page
+@model wentylator.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .custom-header {
+        font-family: 'Georgia', serif;
+        color: rgb(0,191,255);
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        background-color: #f8f9fa; 
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+        padding: 10px; 
+        border-radius: 5px; 
+    }
+
+    .custom-header2 {
+        font-family: 'Georgia', serif;
+        color: rgb(0,0,205);
+        font-weight: 600;
+        font-size: 18px;
+    }
+</style>
+<h1 class="custom-header">Pomiary chłodzenia serwera</h1>
+
+<div>
+    <h3 class="custom-header2">Aktualne Pomiary</h3>
+    <p>Temperatura: @Model.Temperature °C</p>
+    <p>Wilgotność: @Model.Humidity %</p>
+</div>
+
+<div style="margin-top: 30px;">
+    <h3 class="custom-header2">Wykres temperatury</h3>
+    <canvas id="temperatureChart" width="400" height="200"></canvas>
+</div>
+
+<div style="margin-top: 30px;">
+    <h3 class="custom-header2">Wykres wilgotności</h3>
+    <canvas id="humidityChart" width="400" height="200"></canvas>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('temperatureChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec'],
+                datasets: [{
+                    label: 'Temperatura',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30]
+                }]
+            },
+            options: {}
+        });
+
+        var humidityCtx = document.getElementById('humidityChart').getContext('2d');
+        var humidityChart = new Chart(humidityCtx, {
+            type: 'line',
+            data: {
+                labels: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec'],
+                datasets: [{
+                    label: 'Wilgotność',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    data: [50, 45, 48, 55, 52, 60]
+                }]
+            },
+            options: {}
+        });
+    </script>
+}
