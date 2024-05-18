@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using wentylator.Data;
+using wentylator.ExtraClasses;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // Dodaj Razor Pages
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<ISensorDataFetcher, SensorDataFetcher>();
 
 var app = builder.Build();
 
