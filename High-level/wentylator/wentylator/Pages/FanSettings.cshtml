@@ -1,4 +1,32 @@
 ﻿@page
-@model wentylator.Pages.FanSettingsModel
+@model wentylator.Pages.FanSettings.FanSettingsModel
 @{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<h1>Ustawienia wentylatora</h1>
+
+<div>
+    <h3>Ustawienia Czujnika</h3>
+    <form method="post">
+        <div class="form-group">
+            <label for="sensorIp">IP wentylatora:</label>
+            <input type="text" id="sensorIp" name="sensorIp" value="@Model.SensorIp" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </form>
+</div>
+
+@if (Model.IsDeviceAvailable.HasValue)
+{
+    <div class="alert @(Model.IsDeviceAvailable.Value ? "alert-success" : "alert-danger") mt-3">
+        @if (Model.IsDeviceAvailable.Value)
+        {
+            <p>Urządzenie jest dostępne pod adresem IP @Model.SensorIp.</p>
+        }
+        else
+        {
+            <p>Urządzenie jest niedostępne pod adresem IP @Model.SensorIp.</p>
+        }
+    </div>
 }

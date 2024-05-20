@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I1dpsyoWzqQww+R6hlxZY9SiWwuk9t1CWoEgJcmyS5s=",
+  "Hash": "L3v0nqpRxmd6YTu46LTTM4lo+7i3sgIhAaeJ94aMq3A=",
   "Source": "wentylator",
   "BasePath": "_content/wentylator",
   "Mode": "Default",
@@ -1250,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\fanconfig.json",
+      "SourceId": "wentylator",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\",
+      "BasePath": "_content/wentylator",
+      "RelativePath": "fanconfig.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fanconfig.json"
     },
     {
       "Identity": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\favicon.ico",
