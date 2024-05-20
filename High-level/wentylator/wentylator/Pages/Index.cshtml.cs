@@ -6,8 +6,8 @@ namespace wentylator.Pages
 {
     public class IndexModel : PageModel
     {
-        public string Temperature; // przyk³adowe dane
-        public float Humidity { get; set; } = 60.5f; // przyk³adowe dane
+        public string Temperature;
+        public float Humidity { get; set; } = 60.5f;
 
         public void OnGet()
         {

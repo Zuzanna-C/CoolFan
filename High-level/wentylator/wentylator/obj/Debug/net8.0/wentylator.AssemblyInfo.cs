@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wentylator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce69c6c58ba3f91d005efb199a1fe392a1111d74")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91079e06d78b514d2c3ef0c91d19c83f3a7c872f")]
 [assembly: System.Reflection.AssemblyProductAttribute("wentylator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wentylator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
