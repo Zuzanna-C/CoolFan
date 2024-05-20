@@ -18,7 +18,11 @@ namespace wentylator.ExtraClasses
 
         public SensorDataFetcher()
         {
-            _arduinoIp = FindArduinoIp();
+            while (_arduinoIp != "")
+            {
+                _arduinoIp = FindArduinoIp();
+            }
+            
         }
 
         private string FindArduinoIp()
