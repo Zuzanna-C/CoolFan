@@ -24,6 +24,19 @@
         font-weight: 600;
         font-size: 18px;
     }
+
+    .charts-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .chart {
+        flex: 1;
+        min-width: 400px;
+        margin: 10px;
+    }
 </style>
 
 <h1 class="custom-header">Pomiary chłodzenia serwera</h1>
@@ -34,14 +47,15 @@
     <p>Wilgotność: <span id="humidity">@Model.Humidity</span> %</p>
 </div>
 
-<div style="margin-top: 30px;">
-    <h3 class="custom-header2">Wykres temperatury</h3>
-    <canvas id="temperatureChart" width="400" height="200"></canvas>
-</div>
-
-<div style="margin-top: 30px;">
-    <h3 class="custom-header2">Wykres wilgotności</h3>
-    <canvas id="humidityChart" width="400" height="200"></canvas>
+<div class="charts-container">
+    <div class="chart">
+        <h3 class="custom-header2">Wykres temperatury</h3>
+        <canvas id="temperatureChart" width="400" height="200"></canvas>
+    </div>
+    <div class="chart">
+        <h3 class="custom-header2">Wykres wilgotności</h3>
+        <canvas id="humidityChart" width="400" height="200"></canvas>
+    </div>
 </div>
 
 @section Scripts {
@@ -49,6 +63,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
+            var maxPoints = 12; // Liczba punktów dla 60 sekund (przy aktualizacji co 5 sekund)
+
             var temperatureChart = new Chart(document.getElementById('temperatureChart').getContext('2d'), {
                 type: 'line',
                 data: {
@@ -92,11 +108,12 @@
 
                         var now = new Date().toLocaleTimeString();
 
-                        if (temperatureChart.data.labels.length >= 10) {
+                        if (temperatureChart.data.labels.length >= maxPoints) {
                             temperatureChart.data.labels.shift();
                             temperatureChart.data.datasets[0].data.shift();
                         }
-                        if (humidityChart.data.labels.length >= 10) {
+
+                        if (humidityChart.data.labels.length >= maxPoints) {
                             humidityChart.data.labels.shift();
                             humidityChart.data.datasets[0].data.shift();
                         }
@@ -113,7 +130,7 @@
             }
 
             setInterval(fetchData, 5000);
-            fetchData(); // Initial call to populate immediately
+            fetchData();
         });
     </script>
 }
