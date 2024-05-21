@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using wentylator.Data;
+using wentylator.HelpClasses;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<ISensorDataFetcher, SensorDataFetcher>();
+builder.Services.AddTransient<IFanControlService, FanControlService>();
 
 var app = builder.Build();
 
