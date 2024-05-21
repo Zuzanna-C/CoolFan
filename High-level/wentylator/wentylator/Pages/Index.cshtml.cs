@@ -2,6 +2,8 @@ using CoolFan.Interfaces;
 using CoolFan.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Threading.Tasks;
 
 namespace CoolFan.Pages
 {
@@ -75,6 +77,17 @@ namespace CoolFan.Pages
             return Page();
         }
 
+        public async Task<JsonResult> OnGetSensorDataAsync()
+        {
+            try
+            {
+                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
+                return new JsonResult(SensorData);
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { error = ex.Message });
+            }
+        }
     }
-
 }
