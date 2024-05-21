@@ -2,15 +2,10 @@
 using System.Net;
 using System.Text.Json;
 using System.Text;
-using wentylator.Pages;
-using wentylator.Models;
+using CoolFan.Models;
+using CoolFan.Interfaces;
 
-public interface ISensorDataFetcher
-{
-    Task<SensorData> FetchSensorDataAsync();
-}
-
-namespace wentylator.HelpClasses
+namespace CoolFan.HelpClasses
 {
     public class SensorDataFetcher : ISensorDataFetcher
     {

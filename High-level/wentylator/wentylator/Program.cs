@@ -1,7 +1,8 @@
+using CoolFan.HelpClasses;
+using CoolFan.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using wentylator.Data;
-using wentylator.HelpClasses;
 
 var builder = WebApplication.CreateBuilder(args);
 

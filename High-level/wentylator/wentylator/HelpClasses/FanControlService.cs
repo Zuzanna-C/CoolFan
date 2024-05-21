@@ -3,13 +3,9 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text.Json;
 using System.Text;
+using CoolFan.Interfaces;
 
-public interface IFanControlService
-{
-    Task SendCommandAsync(string command);
-}
-
-namespace wentylator.HelpClasses
+namespace CoolFan.HelpClasses
 {
     public class FanControlService : IFanControlService
     {

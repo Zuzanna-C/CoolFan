@@ -1,4 +1,4 @@
-﻿namespace wentylator.Models
+﻿namespace CoolFan.Models
 {
     public class SensorData
     {

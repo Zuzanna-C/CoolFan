@@ -1,8 +1,9 @@
+using CoolFan.Interfaces;
+using CoolFan.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using wentylator.Models;
 
-namespace wentylator.Pages
+namespace CoolFan.Pages
 {
     public class SensorDataModel : PageModel
     {
