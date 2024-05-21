@@ -1,5 +1,6 @@
 ﻿@page
-@model wentylator.Pages.IndexModel
+@using CoolFan.Pages
+@model IndexModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,10 +12,10 @@
         font-size: 24px;
         font-weight: bold;
         text-align: center;
-        background-color: #f8f9fa; 
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
-        padding: 10px; 
-        border-radius: 5px; 
+        background-color: #f8f9fa;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 5px;
     }
 
     .custom-header2 {
@@ -24,12 +25,16 @@
         font-size: 18px;
     }
 </style>
+
 <h1 class="custom-header">Pomiary chłodzenia serwera</h1>
 
 <div>
     <h3 class="custom-header2">Aktualne Pomiary</h3>
-    <p>Temperatura: @Model.Temperature °C</p>
-    <p>Wilgotność: @Model.Humidity %</p>
+    <p>Temperatura: @Model.SensorData.Temperature °C</p>
+    <p>Wilgotność: @Model.SensorData.Humidity %</p>
+    <form method="post">
+        <button type="submit" asp-page-handler="FetchData">Fetch Sensor Data</button>
+    </form>
 </div>
 
 <div style="margin-top: 30px;">
