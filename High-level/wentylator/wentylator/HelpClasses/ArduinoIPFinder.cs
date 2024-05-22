@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace wentylator.ExtraClasses
+namespace CoolFan.HelpClasses
 {
     public class ArduinoIPFinder
     {

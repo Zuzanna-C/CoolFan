@@ -1,3 +1,5 @@
+using CoolFan.HelpClasses;
+using CoolFan.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using wentylator.Data;
@@ -11,6 +13,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<ISensorDataFetcher, SensorDataFetcher>();
+builder.Services.AddTransient<IFanControlService, FanControlService>();
 
 var app = builder.Build();
 

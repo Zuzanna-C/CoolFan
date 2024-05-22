@@ -5245,9 +5245,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wentylator.csproj",
-      "projectName": "wentylator",
-      "projectPath": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wentylator.csproj",
+      "projectUniqueName": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\CoolFan.csproj",
+      "projectName": "CoolFan",
+      "projectPath": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\CoolFan.csproj",
       "packagesPath": "C:\\Users\\Kuba\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\obj\\",
       "projectStyle": "PackageReference",

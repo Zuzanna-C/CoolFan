@@ -1,21 +1,93 @@
+using CoolFan.Interfaces;
+using CoolFan.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Threading.Tasks;
 
-namespace wentylator.Pages
+namespace CoolFan.Pages
 {
     public class IndexModel : PageModel
     {
-        public float Temperature { get; set; } = 25.3f; // przyk³adowe dane
-        public float Humidity { get; set; } = 60.5f; // przyk³adowe dane
+        private readonly ISensorDataFetcher _sensorDataFetcher;
+        private readonly IFanControlService _fanControlService;
 
-        public void OnGet()
+        public float Temperature;
+        public float Humidity;
+
+        public IndexModel(ISensorDataFetcher sensorDataFetcher, IFanControlService fanControlService)
         {
-            // Logika pobierania rzeczywistych danych z czujników
+            _sensorDataFetcher = sensorDataFetcher;
+            _fanControlService = fanControlService;
         }
-    }
 
-    public class SensorData
-    {
-        public float Temperature { get; set; }
-        public float Humidity { get; set; }
+        public SensorData SensorData { get; private set; }
+        public string ErrorMessage { get; private set; }
+        public string CommandMessage { get; private set; }
+
+        public async Task OnGetAsync()
+        {
+            await OnPostFetchDataAsync();
+        }
+
+        public async Task<IActionResult> OnPostFetchDataAsync()
+        {
+            try
+            {
+                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
+                Temperature = SensorData.Temperature;
+                Humidity = SensorData.Humidity;
+                CommandMessage = null;
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostTurnFanOnAsync()
+        {
+            try
+            {
+                await _fanControlService.SendCommandAsync("on");
+                CommandMessage = "Fan turned on.";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostTurnFanOffAsync()
+        {
+            try
+            {
+                await _fanControlService.SendCommandAsync("off");
+                CommandMessage = "Fan turned off.";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+
+            return Page();
+        }
+
+        public async Task<JsonResult> OnGetSensorDataAsync()
+        {
+            try
+            {
+                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
+                return new JsonResult(SensorData);
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { error = ex.Message });
+            }
+        }
     }
 }

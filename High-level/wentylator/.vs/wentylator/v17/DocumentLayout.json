@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|c:\\users\\kuba\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\extraclasses\\arduinoipfinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\extraclasses\\arduinoipfinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\sensordata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\sensordata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\extraclasses\\sensordatafetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\wentylator.csproj|solutionrelative:wentylator\\extraclasses\\sensordatafetcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\sensordata.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\sensordata.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
-              "RelativeToolTip": "wentylator\\Pages\\Index.cshtml",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAwEMAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-20T11:00:44.633Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -49,36 +36,48 @@
               "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml.cs",
               "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml.cs",
               "RelativeToolTip": "wentylator\\Pages\\Index.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAUAAAA",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAwF0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T10:57:01.493Z",
+              "WhenOpened": "2024-05-21T19:10:39.561Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
+              "RelativeToolTip": "wentylator\\Pages\\Index.cshtml",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAcwIQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T19:10:39.018Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ArduinoIPFinder.cs",
-              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\ExtraClasses\\ArduinoIPFinder.cs",
-              "RelativeDocumentMoniker": "wentylator\\ExtraClasses\\ArduinoIPFinder.cs",
-              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\ExtraClasses\\ArduinoIPFinder.cs",
-              "RelativeToolTip": "wentylator\\ExtraClasses\\ArduinoIPFinder.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAADoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T18:46:57.475Z",
-              "EditorCaption": ""
+              "Title": "SensorData.cshtml",
+              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\SensorData.cshtml",
+              "RelativeDocumentMoniker": "wentylator\\Pages\\SensorData.cshtml",
+              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\SensorData.cshtml",
+              "RelativeToolTip": "wentylator\\Pages\\SensorData.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T19:22:13.287Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SensorDataFetcher.cs",
-              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\ExtraClasses\\SensorDataFetcher.cs",
-              "RelativeDocumentMoniker": "wentylator\\ExtraClasses\\SensorDataFetcher.cs",
-              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\ExtraClasses\\SensorDataFetcher.cs",
-              "RelativeToolTip": "wentylator\\ExtraClasses\\SensorDataFetcher.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAwF0AAAAAAAAA",
+              "Title": "SensorData.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\SensorData.cshtml.cs",
+              "RelativeDocumentMoniker": "wentylator\\Pages\\SensorData.cshtml.cs",
+              "ToolTip": "C:\\Users\\Kuba\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\SensorData.cshtml.cs",
+              "RelativeToolTip": "wentylator\\Pages\\SensorData.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T19:58:54.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-21T19:17:40.951Z"
             }
           ]
         }
