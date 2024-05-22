@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using wentylator.Data;
 using CoolFan.Models;
+using CoolFan.HelpClasses;
+using CoolFan.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<ISensorDataFetcher, SensorDataFetcher>();
+builder.Services.AddTransient<IFanControlService, FanControlService>();
 
 // Konfiguracja uwierzytelniania z u¿yciem ciasteczek
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
