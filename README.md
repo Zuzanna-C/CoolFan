@@ -20,5 +20,11 @@ CoolFan is an app which allows user to interact with their colling device. Proje
 
 The embedded part was made using the Arduino Uno microcontroller. The premise of the project is to create a simple cooling system. Therefore, an *Arduino Uno* microcontroller was used as the control for the connected *Silentiumpc Zephyr 120 MM PWM* fan. To enable the fan to switch on and off automatically, a module for measuring temperature and humidity *DHT 22* is also connected.
 
+
+## High Level
+### Frontend
+
+### Backend
+
 Contributors:
 Zuzanna Cebula and Maja Chlipała
