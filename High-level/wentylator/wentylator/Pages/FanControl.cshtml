@@ -22,17 +22,8 @@
                 <button name="action" value="toggle" class="btn btn-primary">Przełącz Wentylator</button>
             </form>
         </div>
-        @if (Model.IsFanOn)
-        {
-            <div class="fan-icon"></div>
-        }
-        else
-        {
-            <p>Wiatrak jest wyłączony</p>
-        }
+        <div class="@(Model.IsFanOn ? "fan-icon rotate" : "fan-icon")"></div>
     </div>
-
-
 </body>
 </html>
 

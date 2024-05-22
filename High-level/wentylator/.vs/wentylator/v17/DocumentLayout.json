@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\fancontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|c:\\users\\chlip\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\wwwroot\\css\\fan.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\wwwroot\\css\\fan.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\models\\credentials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\models\\credentials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\helpclasses\\fancontrolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\helpclasses\\fancontrolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\helpclasses\\arduinoipfinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -106,11 +110,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml.cs",
@@ -119,20 +123,36 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-21T19:10:39.561Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Index.cshtml",
               "ToolTip": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Index.cshtml",
               "RelativeToolTip": "wentylator\\Pages\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIgAAAAAAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAIgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-21T19:10:39.018Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "fan.css",
+              "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\css\\fan.css",
+              "RelativeDocumentMoniker": "wentylator\\wwwroot\\css\\fan.css",
+              "ToolTip": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\css\\fan.css",
+              "RelativeToolTip": "wentylator\\wwwroot\\css\\fan.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-22T12:07:39.612Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -142,14 +162,14 @@
               "RelativeDocumentMoniker": "wentylator\\Pages\\FanControl.cshtml",
               "ToolTip": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\FanControl.cshtml",
               "RelativeToolTip": "wentylator\\Pages\\FanControl.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAcwB8AAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-22T11:44:23.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ArduinoIPFinder.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\HelpClasses\\ArduinoIPFinder.cs",
               "RelativeDocumentMoniker": "wentylator\\HelpClasses\\ArduinoIPFinder.cs",
@@ -161,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "FanControlService.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\HelpClasses\\FanControlService.cs",
               "RelativeDocumentMoniker": "wentylator\\HelpClasses\\FanControlService.cs",
@@ -173,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Program.cs",
               "RelativeDocumentMoniker": "wentylator\\Program.cs",
@@ -185,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "credentials.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Models\\credentials.cs",
               "RelativeDocumentMoniker": "wentylator\\Models\\credentials.cs",
@@ -197,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Logout.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Logout.cshtml.cs",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Logout.cshtml.cs",
@@ -209,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Login.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Login.cshtml",
@@ -221,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Login.cshtml.cs",
@@ -233,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "SensorDataFetcher.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\HelpClasses\\SensorDataFetcher.cs",
               "RelativeDocumentMoniker": "wentylator\\HelpClasses\\SensorDataFetcher.cs",
@@ -245,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "IFanControlService.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Interfaces\\IFanControlService.cs",
               "RelativeDocumentMoniker": "wentylator\\Interfaces\\IFanControlService.cs",
@@ -257,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ISensorDataFetcher.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Interfaces\\ISensorDataFetcher.cs",
               "RelativeDocumentMoniker": "wentylator\\Interfaces\\ISensorDataFetcher.cs",
@@ -269,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "SensorData.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Models\\SensorData.cs",
               "RelativeDocumentMoniker": "wentylator\\Models\\SensorData.cs",
@@ -281,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Shared\\_Layout.cshtml",
@@ -293,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Shared\\_LoginPartial.cshtml",
@@ -305,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Settings.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Settings.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Settings.cshtml",
@@ -317,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Error.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Error.cshtml",
@@ -329,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\_ViewImports.cshtml",
@@ -341,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\_ViewStart.cshtml",
@@ -353,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
@@ -365,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Privacy.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Privacy.cshtml",
@@ -377,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "SensorData.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\SensorData.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\SensorData.cshtml",
@@ -389,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "SensorData.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\SensorData.cshtml.cs",
               "RelativeDocumentMoniker": "wentylator\\Pages\\SensorData.cshtml.cs",
