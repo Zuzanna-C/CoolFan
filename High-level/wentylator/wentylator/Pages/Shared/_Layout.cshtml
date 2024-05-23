@@ -64,7 +64,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Settings">Ustawienia</a>
                                 <div class="dropdown-divider"></div>
-                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                <form class="form-inline" asp-area="" asp-page="/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
                                     <button type="submit" class="dropdown-item">Wyloguj</button>
                                 </form>
                             </div>
@@ -73,10 +73,7 @@
                     else
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Zarejestruj</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Zaloguj</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Zaloguj</a>
                         </li>
                     }
                 </ul>
@@ -96,4 +93,3 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-
