@@ -25,6 +25,14 @@
         </div>
         <div class="@(Model.IsFanOn ? "fan-icon rotate" : "fan-icon")"></div>
     </div>
+    <div class="container">
+        <div>
+            <p>Tryb Automatyczny jest: @(Model.IsAutoOn ? "włączony" : "wyłączony")</p>
+            <form method="post">
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn">Turn Auto Mode</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
 

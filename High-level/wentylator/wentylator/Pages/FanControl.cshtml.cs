@@ -10,6 +10,7 @@ namespace wentylator.Pages.FanControl
     public class FanControlIndexModel : PageModel
     {
         public bool IsFanOn { get; set; } = false;
+        public bool IsAutoOn { get; set; } = false;
         private readonly IFanControlService _fanControlService;
 
         public FanControlIndexModel(IFanControlService fanControlService)
