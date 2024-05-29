@@ -57,5 +57,28 @@ namespace wentylator.Pages.FanControl
 
             return Page();
         }
+
+        public string? arduinoIP = "0.0.0.0";
+        public async Task<IActionResult> OnPostReturnIP()
+        {
+            try
+            {
+                ArduinoDiscoverer discoverer = new ArduinoDiscoverer(4567);
+                await discoverer.DiscoverArduinoAsync();
+                arduinoIP = Convert.ToString(discoverer.arduinoIpAddress);
+                discoverer.StopDiscovery();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+
+            return Page();
+        }
+
+        private static void OnIpAddressDiscovered(string ipAddress)
+        {
+            Console.WriteLine($"Discovered Arduino IP Address: {ipAddress}");
+        }
     }
 }
