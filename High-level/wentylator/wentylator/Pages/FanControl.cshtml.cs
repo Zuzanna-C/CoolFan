@@ -3,6 +3,7 @@ using CoolFan.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Net;
 
 namespace wentylator.Pages.FanControl
 {
@@ -58,19 +59,33 @@ namespace wentylator.Pages.FanControl
             return Page();
         }
 
-        public string? arduinoIP = "0.0.0.0";
+        public string? arduinoIP = "0";
         public async Task<IActionResult> OnPostReturnIP()
         {
+            ArduinoDiscoverer discoverer = new ArduinoDiscoverer(4567);
+
             try
             {
-                ArduinoDiscoverer discoverer = new ArduinoDiscoverer(4567);
-                await discoverer.DiscoverArduinoAsync();
-                arduinoIP = Convert.ToString(discoverer.arduinoIpAddress);
-                discoverer.StopDiscovery();
+                Console.WriteLine("Discovering Arduino...");
+                IPAddress arduinoIp = await discoverer.DiscoverArduinoAsync();
+
+                if (arduinoIp != null)
+                {
+                    Console.WriteLine($"Arduino discovered at IP address: {arduinoIp}");
+                    arduinoIP = arduinoIp.ToString();
+                }
+                else
+                {
+                    arduinoIP = "Failed to discover Arduino.";
+                }
             }
             catch (Exception ex)
             {
-                ErrorMessage = ex.Message;
+                arduinoIP = ex.Message;
+            }
+            finally
+            {
+                discoverer.StopDiscovery();
             }
 
             return Page();

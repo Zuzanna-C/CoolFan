@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -13,9 +11,7 @@ namespace CoolFan.HelpClasses
     {
         private int port;
         private UdpClient udpClient;
-        public IPAddress arduinoIpAddress;
-
-        public event Action<string> IpAddressDiscovered;
+        private IPAddress arduinoIpAddress;
 
         public ArduinoDiscoverer(int port)
         {
@@ -24,8 +20,7 @@ namespace CoolFan.HelpClasses
             this.udpClient.EnableBroadcast = true;
         }
 
-
-        public async Task DiscoverArduinoAsync()
+        public async Task<IPAddress> DiscoverArduinoAsync()
         {
             string discoverMessage = "{\"command\": \"DISCOVER\"}";
             byte[] discoverBytes = Encoding.ASCII.GetBytes(discoverMessage);
@@ -44,13 +39,13 @@ namespace CoolFan.HelpClasses
                     {
                         string ipAddress = message.Substring(3);
                         arduinoIpAddress = IPAddress.Parse(ipAddress);
-                        IpAddressDiscovered?.Invoke(ipAddress);
-                        break; 
+                        return arduinoIpAddress;
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error receiving UDP packet: {ex.Message}");
+                    return null;
                 }
             }
         }
@@ -60,12 +55,12 @@ namespace CoolFan.HelpClasses
             udpClient.Close();
         }
 
-        public async Task SendCommandAsync(string command)
+        public async Task<bool> SendCommandAsync(string command)
         {
             if (arduinoIpAddress == null)
             {
                 Console.WriteLine("Arduino IP address not discovered yet.");
-                return;
+                return false;
             }
 
             var commandObject = new JObject { ["command"] = command };
@@ -77,10 +72,12 @@ namespace CoolFan.HelpClasses
             {
                 await udpClient.SendAsync(commandBytes, commandBytes.Length, arduinoEndPoint);
                 Console.WriteLine($"Sent command: {command}");
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error sending UDP packet: {ex.Message}");
+                return false;
             }
         }
     }
