@@ -9,8 +9,13 @@ namespace CoolFan.HelpClasses
 {
     public class SensorDataFetcher : ISensorDataFetcher
     {
-        private readonly string _arduinoIp = "192.168.188.106";
+        private readonly string _arduinoIp;
         private readonly int _port = 4567;
+
+        public SensorDataFetcher(string arduinoIP) 
+        {
+            _arduinoIp = arduinoIP;
+        }
 
         public async Task<SensorData> FetchSensorDataAsync()
         {

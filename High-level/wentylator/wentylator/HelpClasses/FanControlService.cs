@@ -9,7 +9,7 @@ namespace CoolFan.HelpClasses
 {
     public class FanControlService : IFanControlService
     {
-        private readonly string _arduinoIp = "192.168.188.106";
+        private readonly string _arduinoIp;
         private readonly int _port = 4567;
 
         public async Task SendCommandAsync(string command)

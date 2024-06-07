@@ -1,24 +1,56 @@
+using CoolFan.HelpClasses;
 using CoolFan.Interfaces;
 using CoolFan.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
-using System.Threading.Tasks;
+using System.Net;
 
 namespace CoolFan.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ISensorDataFetcher _sensorDataFetcher;
-        private readonly IFanControlService _fanControlService;
+        private  ISensorDataFetcher _sensorDataFetcher;
+        private  IFanControlService _fanControlService;
 
         public float Temperature;
         public float Humidity;
 
+        public string ArduinoIP;
+        public async Task InitializeAsync()
+        {
+            ArduinoDiscoverer discoverer = new ArduinoDiscoverer(4567);
+
+            try
+            {
+                Console.WriteLine("Discovering Arduino...");
+                IPAddress arduinoIp = await discoverer.DiscoverArduinoAsync();
+
+                if (arduinoIp != null)
+                {
+                    ArduinoIP = arduinoIp.ToString();
+                }
+                else
+                {
+                    ArduinoIP = "Failed to discover Arduino.";
+                }
+            }
+            catch (Exception ex)
+            {
+                ArduinoIP = ex.Message;
+            }
+            finally
+            {
+                discoverer.StopDiscovery();
+            }
+
+            _sensorDataFetcher = new SensorDataFetcher(ArduinoIP);
+        }
+
+        // Konstruktor
         public IndexModel(ISensorDataFetcher sensorDataFetcher, IFanControlService fanControlService)
         {
-            _sensorDataFetcher = sensorDataFetcher;
             _fanControlService = fanControlService;
+            InitializeAsync().Wait();
         }
 
         public SensorData SensorData { get; private set; }

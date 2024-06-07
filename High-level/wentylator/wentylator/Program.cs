@@ -16,7 +16,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
-builder.Services.AddTransient<ISensorDataFetcher, SensorDataFetcher>();
+builder.Services.AddTransient<ISensorDataFetcher>(sp =>
+{
+    var arduinoIP = "";
+    return new SensorDataFetcher(arduinoIP);
+});
 builder.Services.AddTransient<IFanControlService, FanControlService>();
 
 // Konfiguracja uwierzytelniania z u¿yciem ciasteczek
