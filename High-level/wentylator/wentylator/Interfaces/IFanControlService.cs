@@ -2,6 +2,7 @@
 {
     public interface IFanControlService
     {
-        Task SendCommandAsync(string command);
+        public  Task turnOFF();
+        public Task turnON();
     }
 }

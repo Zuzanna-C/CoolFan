@@ -1,54 +1,69 @@
 ﻿using System.Net.Sockets;
 using System.Net;
-using System.Text.Json;
 using System.Text;
 using CoolFan.Models;
 using CoolFan.Interfaces;
+using System.Globalization;
 
 namespace CoolFan.HelpClasses
 {
     public class SensorDataFetcher : ISensorDataFetcher
     {
-        private readonly string _arduinoIp;
-        private readonly int _port = 4567;
+        private static int _arduinoPort = 4567; // Stały port nasłuchu na Arduino
+        private UdpClient client;
+        private SensorData _sensorData = new SensorData();
+        private string command = "data";
+        private ConnectArduino _connectArduino = new ConnectArduino();
 
-        public SensorDataFetcher(string arduinoIP) 
+        public SensorDataFetcher()
         {
-            _arduinoIp = arduinoIP;
+            // Dynamicznie przydzielany port przez system operacyjny
+            client = new UdpClient(0);
         }
 
-        public async Task<SensorData> FetchSensorDataAsync()
+        public async Task<SensorData> getSensorDataAsync()
         {
-            using (UdpClient client = new UdpClient(_port))
+            await fetchData();
+            return _sensorData;
+        }
+
+        public async Task fetchData()
+        {
+            string arduinoIP = _connectArduino._arduinoIp;
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(arduinoIP), _arduinoPort);
+
+            byte[] data = Encoding.UTF8.GetBytes(command);
+
+            await client.SendAsync(data, data.Length, endPoint);
+
+            client.Client.ReceiveTimeout = 5000;
+
+            try
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(_arduinoIp), _port);
-
-                string json = JsonSerializer.Serialize(new { command = "data" });
-                byte[] data = Encoding.UTF8.GetBytes(json);
-
-                await client.SendAsync(data, data.Length, endPoint);
-
-                client.Client.ReceiveTimeout = 5000;
-
                 UdpReceiveResult result = await client.ReceiveAsync();
-                string jsonResponse = Encoding.UTF8.GetString(result.Buffer);
+                string response = Encoding.UTF8.GetString(result.Buffer);
 
-                var sensorDataDict = JsonSerializer.Deserialize<Dictionary<string, float>>(jsonResponse);
+                string[] parts = response.Split(',');
 
-                if (sensorDataDict != null &&
-                    sensorDataDict.TryGetValue("temperature", out float temperature) &&
-                    sensorDataDict.TryGetValue("humidity", out float humidity))
+                if (parts.Length == 2)
                 {
-                    return new SensorData
+                    float temperature = float.Parse(parts[0], CultureInfo.InvariantCulture.NumberFormat);
+                    float humidity = float.Parse(parts[1], CultureInfo.InvariantCulture.NumberFormat);
+                    _sensorData = new SensorData
                     {
                         Temperature = temperature,
                         Humidity = humidity
                     };
+                    Console.WriteLine($"Temperature: {_sensorData.Temperature}, Humidity: {_sensorData.Humidity}");
                 }
                 else
                 {
-                    throw new Exception("Failed to deserialize sensor data.");
+                    Console.WriteLine("Failed to parse sensor data.");
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error receiving response: {ex.Message}");
             }
         }
     }

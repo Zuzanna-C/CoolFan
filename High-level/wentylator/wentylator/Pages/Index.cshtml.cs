@@ -3,7 +3,6 @@ using CoolFan.Interfaces;
 using CoolFan.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Net;
 
 namespace CoolFan.Pages
 {
@@ -11,46 +10,17 @@ namespace CoolFan.Pages
     {
         private  ISensorDataFetcher _sensorDataFetcher;
         private  IFanControlService _fanControlService;
+        //private ConnectArduino _connectArduino;
 
         public float Temperature;
         public float Humidity;
 
         public string ArduinoIP;
-        public async Task InitializeAsync()
-        {
-            ArduinoDiscoverer discoverer = new ArduinoDiscoverer(4567);
 
-            try
-            {
-                Console.WriteLine("Discovering Arduino...");
-                IPAddress arduinoIp = await discoverer.DiscoverArduinoAsync();
-
-                if (arduinoIp != null)
-                {
-                    ArduinoIP = arduinoIp.ToString();
-                }
-                else
-                {
-                    ArduinoIP = "Failed to discover Arduino.";
-                }
-            }
-            catch (Exception ex)
-            {
-                ArduinoIP = ex.Message;
-            }
-            finally
-            {
-                discoverer.StopDiscovery();
-            }
-
-            _sensorDataFetcher = new SensorDataFetcher(ArduinoIP);
-        }
-
-        // Konstruktor
         public IndexModel(ISensorDataFetcher sensorDataFetcher, IFanControlService fanControlService)
         {
             _fanControlService = fanControlService;
-            InitializeAsync().Wait();
+            _sensorDataFetcher = sensorDataFetcher;
         }
 
         public SensorData SensorData { get; private set; }
@@ -59,17 +29,17 @@ namespace CoolFan.Pages
 
         public async Task OnGetAsync()
         {
-            await OnPostFetchDataAsync();
+            await OnPostFetchData();
         }
 
-        public async Task<IActionResult> OnPostFetchDataAsync()
+        public async Task<IActionResult> OnPostFetchData()
         {
+            
             try
             {
-                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
+                SensorData = await _sensorDataFetcher.getSensorDataAsync();
                 Temperature = SensorData.Temperature;
                 Humidity = SensorData.Humidity;
-                CommandMessage = null;
             }
             catch (Exception ex)
             {
@@ -83,7 +53,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("on");
+                await _fanControlService.turnON();
                 CommandMessage = "Fan turned on.";
             }
             catch (Exception ex)
@@ -98,7 +68,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("off");
+                await _fanControlService.turnOFF();
                 CommandMessage = "Fan turned off.";
             }
             catch (Exception ex)
@@ -107,19 +77,6 @@ namespace CoolFan.Pages
             }
 
             return Page();
-        }
-
-        public async Task<JsonResult> OnGetSensorDataAsync()
-        {
-            try
-            {
-                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
-                return new JsonResult(SensorData);
-            }
-            catch (Exception ex)
-            {
-                return new JsonResult(new { error = ex.Message });
-            }
         }
     }
 }

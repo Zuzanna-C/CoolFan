@@ -4,6 +4,7 @@ namespace CoolFan.Interfaces
 {
     public interface ISensorDataFetcher
     {
-        Task<SensorData> FetchSensorDataAsync();
+        public Task fetchData();
+        public Task<SensorData> getSensorDataAsync();
     }
 }
