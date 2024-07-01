@@ -1,21 +1,20 @@
 #include <SPI.h>
 #include <Ethernet.h>
-#include <ArduinoJson.h>
 #include <EthernetUdp.h>
 #include <DHT.h>
 
-byte mac[] = {
-  0xD0, 0xA6, 0xC3, 0xE4, 0xD2, 0x5F
-};
+byte mac[] = {0xD0, 0xA6, 0xC3, 0xE4, 0xD2, 0x5F};
 
-unsigned int port = 4567;
+unsigned int receivePort = 4567;
+unsigned int sendPort = 1928;
+
 EthernetUDP Udp;
-bool hasResponded = false;
-IPAddress serverIP(192, 234, 188, 44);
+IPAddress serverIP(192, 168, 188, 43);
 
 const int fanPin = 2;
-#define DHTPIN 3     
-#define DHTTYPE DHT22   
+
+#define DHTPIN 5
+#define DHTTYPE DHT22
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -23,9 +22,8 @@ void setup() {
   Serial.begin(9600);
   while (!Serial) {
   }
-  Serial.println("Ethernet UDP Example");
-
   Serial.println("Initialize Ethernet with DHCP:");
+  
   if (Ethernet.begin(mac) == 0) {
     Serial.println("Failed to configure Ethernet using DHCP");
     if (Ethernet.hardwareStatus() == EthernetNoHardware) {
@@ -40,100 +38,71 @@ void setup() {
   Serial.print("My IP address: ");
   Serial.println(Ethernet.localIP());
 
-  Udp.begin(port);
+  Udp.begin(receivePort);
 
   pinMode(fanPin, OUTPUT);
   digitalWrite(fanPin, LOW);
+
   dht.begin();
 }
 
 void loop() {
-
   int packetSize = Udp.parsePacket();
   if (packetSize) {
     char packetBuffer[255];
     int len = Udp.read(packetBuffer, 255);
     if (len > 0) {
-      packetBuffer[len] = 0;
+      packetBuffer[len] = '\0'; // Zakończenie ciągu znaków null-terminatorem
       Serial.print("Received packet: ");
       Serial.println(packetBuffer);
-      if (strcmp(packetBuffer, "FIND_ARDUINO") == 0) {
-        IPAddress ip = Ethernet.localIP();
-        byte ipArray[4] = { ip[0], ip[1], ip[2], ip[3] };
 
-        serverIP = Udp.remoteIP();
+      if (strcmp(packetBuffer, "initialize") == 0) {
+        String ip = toString(Ethernet.localIP());
 
-        Udp.beginPacket(serverIP, Udp.remotePort());
-        Udp.write(ipArray, 4);
+        IPAddress serverIP = Udp.remoteIP();
+        Udp.beginPacket(Udp.remoteIP(), sendPort);
+        Udp.write(ip.c_str());
         Udp.endPacket();
-        Serial.println("Response sent with IP address:");
-        Serial.println(serverIP);
+        Serial.println("Sent test message response.");
+      } 
+      else if (strcmp(packetBuffer, "data") == 0) {
+        float temperature = dht.readTemperature();
+        float humidity = dht.readHumidity();
+        if (isnan(temperature) || isnan(humidity)) {
+          Serial.println("Failed to read from DHT sensor!");
+          return; 
+        }
+
+        String temperatureString = String(temperature, 2);
+        String humidityString = String(humidity, 2); 
+
+        char response[50];
+        snprintf(response, sizeof(response), "%s,%s", temperatureString.c_str(), humidityString.c_str());
+
+        Udp.beginPacket(serverIP, sendPort);
+        Udp.write(response);
+        if (Udp.endPacket() == 0) {
+          Serial.println("Failed to send packet");
+        } else {
+          Serial.println("Packet sent successfully");
+        }
+      } 
+      else if (strcmp(packetBuffer, "on") == 0) {
+        digitalWrite(fanPin, LOW);
+        Serial.println("Fan is ON");
+      } 
+      else if (strcmp(packetBuffer, "off") == 0) {
+        digitalWrite(fanPin, HIGH);
+        Serial.println("Fan is OFF");
+      } 
+      else {
+        Serial.println("Invalid command");
       }
     }
   }
-
-  checkUDPData();
   delay(1000);
 }
 
-void checkUDPData() {
-  int packetSize = Udp.parsePacket();
-  if (packetSize) {
-    Serial.print("Received packet of size ");
-    Serial.println(packetSize);
-    char incomingPacket[packetSize + 1];
-    Udp.read(incomingPacket, packetSize);
-    incomingPacket[packetSize] = '\0';
-
-    Serial.print("Received packet: ");
-    Serial.println(incomingPacket);
-
-    StaticJsonDocument<200> doc;
-    DeserializationError error = deserializeJson(doc, incomingPacket);
-
-    if (error) {
-      Serial.print(F("deserializeJson() failed: "));
-      Serial.println(error.f_str());
-      return;
-    }
-
-    const char* command = doc["command"];
-
-    if (strcmp(command, "off") == 0) {
-      digitalWrite(fanPin, HIGH);
-      Serial.println("Fan is OFF");
-    } else if (strcmp(command, "on") == 0) {
-      digitalWrite(fanPin, LOW);
-      Serial.println("Fan is ON");
-    } else if (strcmp(command, "data") == 0) {
-      sendSensorData();
-    } else {
-      Serial.println("Invalid command");
-    }
-  }
-}
-
-void sendSensorData() {
-  float temperature = dht.readTemperature();
-  float humidity = dht.readHumidity();
-
-  if (isnan(temperature) || isnan(humidity)) {
-    Serial.println("Failed to read from DHT sensor!");
-    return;
-  }
-
-  StaticJsonDocument<500> doc;
-  doc["temperature"] = temperature;
-  doc["humidity"] = humidity;
-
-  char buffer[500];
-  size_t n = serializeJson(doc, buffer);
-
-  Udp.beginPacket(serverIP, port);
-  Udp.write(buffer, n);
-  if (Udp.endPacket() == 0) {
-    Serial.println("Failed to send packet");
-  } else {
-    Serial.println("Packet sent successfully");
-  }
+String toString(const IPAddress& address){
+  return String() + address[0] + "." + address[1] + "." + address[2] + "." + address[3];
 }

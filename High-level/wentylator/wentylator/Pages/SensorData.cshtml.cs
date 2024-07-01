@@ -23,16 +23,18 @@ namespace CoolFan.Pages
         public string ErrorMessage { get; private set; }
         public string CommandMessage { get; private set; }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
+            await OnPostFetchDataAsync();
         }
 
         public async Task<IActionResult> OnPostFetchDataAsync()
         {
             try
             {
-                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
-                CommandMessage = null;
+                SensorData = await _sensorDataFetcher.getSensorDataAsync();
+                Temperature = SensorData.Temperature;
+                Humidity = SensorData.Humidity;
             }
             catch (Exception ex)
             {
