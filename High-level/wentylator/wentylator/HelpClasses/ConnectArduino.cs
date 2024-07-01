@@ -6,22 +6,23 @@ namespace CoolFan.HelpClasses
 {
     public class ConnectArduino
     {
-        public string _arduinoIp = "192.168.188.108";
-        private int _port = 4567;
-        private int _receivePort = 1928;
-
-        string command = "initialize";
+        public string _arduinoIp;
+        private static int _commandPort = 4568;
+        private UdpClient client;
+        private string command = "initialize";
 
         public ConnectArduino()
         {
+            client = new UdpClient(0);
             establishconnection();
         }
 
         public async void establishconnection()
         {
-            using (UdpClient client = new UdpClient(_receivePort))
+            using (client)
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(_arduinoIp), _port);
+                if (_arduinoIp == null) { _arduinoIp = "255.255.255.255"; };
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(_arduinoIp), _commandPort);
 
                 byte[] data = Encoding.UTF8.GetBytes(command);
 

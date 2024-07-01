@@ -53,7 +53,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("on");
+                await _fanControlService.turnON();
                 CommandMessage = "Fan turned on.";
             }
             catch (Exception ex)
@@ -68,7 +68,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("off");
+                await _fanControlService.turnOFF();
                 CommandMessage = "Fan turned off.";
             }
             catch (Exception ex)

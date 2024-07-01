@@ -6,9 +6,9 @@
 byte mac[] = {0xD0, 0xA6, 0xC3, 0xE4, 0xD2, 0x5F};
 
 unsigned int receivePort = 4567;
-unsigned int sendPort = 1928;
 
 EthernetUDP Udp;
+
 IPAddress serverIP(192, 168, 188, 43);
 
 const int fanPin = 2;
@@ -60,7 +60,8 @@ void loop() {
         String ip = toString(Ethernet.localIP());
 
         IPAddress serverIP = Udp.remoteIP();
-        Udp.beginPacket(Udp.remoteIP(), sendPort);
+        unsigned int remotePort = Udp.remotePort();
+        Udp.beginPacket(serverIP, remotePort);
         Udp.write(ip.c_str());
         Udp.endPacket();
         Serial.println("Sent test message response.");
@@ -79,7 +80,9 @@ void loop() {
         char response[50];
         snprintf(response, sizeof(response), "%s,%s", temperatureString.c_str(), humidityString.c_str());
 
-        Udp.beginPacket(serverIP, sendPort);
+        IPAddress serverIP = Udp.remoteIP();
+        unsigned int remotePort = Udp.remotePort();
+        Udp.beginPacket(serverIP, remotePort);
         Udp.write(response);
         if (Udp.endPacket() == 0) {
           Serial.println("Failed to send packet");

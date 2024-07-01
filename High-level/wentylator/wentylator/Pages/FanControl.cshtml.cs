@@ -16,6 +16,8 @@ namespace wentylator.Pages.FanControl
         private ConnectArduino _connectArduino;
         public string arduinoIP;
 
+
+
         public FanControlIndexModel(IFanControlService fanControlService)
         {
             _fanControlService = fanControlService;
@@ -26,14 +28,14 @@ namespace wentylator.Pages.FanControl
 
         public async Task OnGetAsync()
         {
-            arduinoIP = _connectArduino._arduinoIp;
+            //arduinoIP = _connectArduino._arduinoIp;
         }
 
         public async Task<IActionResult> OnPostTurnFanOnAsync()
         {
             try
             {
-                await _fanControlService.SendCommandAsync("on");
+                await _fanControlService.turnON();
                 CommandMessage = "Fan turned on.";
                 IsFanOn = true;
             }
@@ -49,7 +51,7 @@ namespace wentylator.Pages.FanControl
         {
             try
             {
-                await _fanControlService.SendCommandAsync("off");
+                await _fanControlService.turnOFF();
                 CommandMessage = "Fan turned off.";
                 IsFanOn = false;
             }

@@ -9,20 +9,16 @@ namespace CoolFan.HelpClasses
 {
     public class SensorDataFetcher : ISensorDataFetcher
     {
-        public ConnectArduino _connectArduino; // = new ConnectArduino();
-        private readonly string _arduinoIp;
-        private static int _port = 4567;
-        private static int _receivePort = 1928;
-
-        UdpClient client = new UdpClient(_receivePort);
-
-        string command = "data";
-
+        private static int _arduinoPort = 4567; // Stały port nasłuchu na Arduino
+        private UdpClient client;
         private SensorData _sensorData = new SensorData();
+        private string command = "data";
+        private ConnectArduino _connectArduino = new ConnectArduino();
 
-        public SensorDataFetcher() 
+        public SensorDataFetcher()
         {
-            //_arduinoIp = _connectArduino._arduinoIp;
+            // Dynamicznie przydzielany port przez system operacyjny
+            client = new UdpClient(0);
         }
 
         public async Task<SensorData> getSensorDataAsync()
@@ -33,50 +29,41 @@ namespace CoolFan.HelpClasses
 
         public async Task fetchData()
         {
-            using (client)
+            string arduinoIP = _connectArduino._arduinoIp;
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(arduinoIP), _arduinoPort);
+
+            byte[] data = Encoding.UTF8.GetBytes(command);
+
+            await client.SendAsync(data, data.Length, endPoint);
+
+            client.Client.ReceiveTimeout = 5000;
+
+            try
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.108"), _port); //ten adres nie ma być statyczny
+                UdpReceiveResult result = await client.ReceiveAsync();
+                string response = Encoding.UTF8.GetString(result.Buffer);
 
-                byte[] data = Encoding.UTF8.GetBytes(command);
+                string[] parts = response.Split(',');
 
-                await client.SendAsync(data, data.Length, endPoint);
-
-                client.Client.ReceiveTimeout = 5000;
-
-                try
+                if (parts.Length == 2)
                 {
-                    UdpReceiveResult result = await client.ReceiveAsync();
-                    string response = Encoding.UTF8.GetString(result.Buffer);
-
-                    if (command == "data")
+                    float temperature = float.Parse(parts[0], CultureInfo.InvariantCulture.NumberFormat);
+                    float humidity = float.Parse(parts[1], CultureInfo.InvariantCulture.NumberFormat);
+                    _sensorData = new SensorData
                     {
-                        string[] parts = response.Split(',');
-
-                        if (parts.Length == 2)
-                        {
-                            float temperature = float.Parse(parts[0], CultureInfo.InvariantCulture.NumberFormat);
-                            float humidity = float.Parse(parts[1], CultureInfo.InvariantCulture.NumberFormat);
-                            _sensorData = new SensorData
-                            {
-                                Temperature = temperature,
-                                Humidity = humidity
-                            };
-                            Console.WriteLine($"Temperature: {_sensorData.Temperature}, Humidity: {_sensorData.Humidity}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Failed to parse sensor data.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Received response: {response}");
-                    }
+                        Temperature = temperature,
+                        Humidity = humidity
+                    };
+                    Console.WriteLine($"Temperature: {_sensorData.Temperature}, Humidity: {_sensorData.Humidity}");
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine($"Error receiving response: {ex.Message}");
+                    Console.WriteLine("Failed to parse sensor data.");
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error receiving response: {ex.Message}");
             }
         }
     }
