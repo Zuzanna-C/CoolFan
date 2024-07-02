@@ -13,7 +13,7 @@ namespace CoolFan.HelpClasses
         {
             using (UdpClient client = new UdpClient())
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.108"), _port);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.253"), _port);
 
                 byte[] data = Encoding.UTF8.GetBytes("on");
 
@@ -38,7 +38,7 @@ namespace CoolFan.HelpClasses
         {
             using (UdpClient client = new UdpClient())
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.108"), _port);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.253"), _port);
 
                 byte[] data = Encoding.UTF8.GetBytes("off");
 

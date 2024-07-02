@@ -8,17 +8,15 @@ using System.Net;
 namespace wentylator.Pages.FanControl
 {
     [Authorize]
-    public class FanControlIndexModel : PageModel
+    public class FanControlModel : PageModel
     {
         public bool IsFanOn { get; set; } = false;
         public bool IsAutoOn { get; set; } = false;
         private readonly IFanControlService _fanControlService;
-        private ConnectArduino _connectArduino;
-        public string arduinoIP;
 
 
 
-        public FanControlIndexModel(IFanControlService fanControlService)
+        public FanControlModel(IFanControlService fanControlService)
         {
             _fanControlService = fanControlService;
         }
@@ -28,14 +26,14 @@ namespace wentylator.Pages.FanControl
 
         public async Task OnGetAsync()
         {
-            //arduinoIP = _connectArduino._arduinoIp;
+            //OnPostTurnFanOffAsync();
         }
 
-        public async Task<IActionResult> OnPostTurnFanOnAsync()
+        public IActionResult OnPostTurnFanOn()
         {
             try
             {
-                await _fanControlService.turnON();
+                _fanControlService.turnON();
                 CommandMessage = "Fan turned on.";
                 IsFanOn = true;
             }
@@ -43,15 +41,14 @@ namespace wentylator.Pages.FanControl
             {
                 ErrorMessage = ex.Message;
             }
-
             return Page();
         }
 
-        public async Task<IActionResult> OnPostTurnFanOffAsync()
+        public  IActionResult OnPostTurnFanOff()
         {
             try
             {
-                await _fanControlService.turnOFF();
+                _fanControlService.turnOFF();
                 CommandMessage = "Fan turned off.";
                 IsFanOn = false;
             }
@@ -59,7 +56,6 @@ namespace wentylator.Pages.FanControl
             {
                 ErrorMessage = ex.Message;
             }
-
             return Page();
         }
         
