@@ -1,5 +1,5 @@
 ﻿@page
-@model wentylator.Pages.FanControl.FanControlIndexModel
+@model wentylator.Pages.FanControl.FanControlModel
 @{
     ViewData["Title"] = "Sterowanie Wentylatorem";
 }
@@ -30,14 +30,6 @@
             <p>Tryb Automatyczny jest: @(Model.IsAutoOn ? "włączony" : "wyłączony")</p>
             <form method="post">
                 <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn">Turn Auto Mode</button>
-            </form>
-        </div>
-    </div>
-    <div class="container">
-        <div>
-            <p>Adres IP Arduino to: @(Model.arduinoIP)</p>
-            <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="ReturnIP">Podaj IP</button>
             </form>
         </div>
     </div>

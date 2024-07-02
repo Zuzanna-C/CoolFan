@@ -544,3 +544,4 @@ C:\Users\chlip\Documents\GitHub\CoolFan\High-level\wentylator\wentylator\obj\Deb
 C:\Users\chlip\Documents\GitHub\CoolFan\High-level\wentylator\wentylator\obj\Debug\net8.0\CoolFan.pdb
 C:\Users\chlip\Documents\GitHub\CoolFan\High-level\wentylator\wentylator\obj\Debug\net8.0\CoolFan.genruntimeconfig.cache
 C:\Users\chlip\Documents\GitHub\CoolFan\High-level\wentylator\wentylator\obj\Debug\net8.0\ref\CoolFan.dll
+C:\Users\Kuba\Documents\GitHub\CoolFan\High-level\wentylator\wentylator\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

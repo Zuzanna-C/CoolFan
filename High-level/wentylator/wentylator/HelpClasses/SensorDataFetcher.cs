@@ -54,7 +54,7 @@ namespace CoolFan.HelpClasses
                         Temperature = temperature,
                         Humidity = humidity
                     };
-                    Console.WriteLine($"Temperature: {_sensorData.Temperature}, Humidity: {_sensorData.Humidity}");
+                    //Console.WriteLine($"Temperature: {_sensorData.Temperature}, Humidity: {_sensorData.Humidity}");
                 }
                 else
                 {

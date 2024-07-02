@@ -3,36 +3,40 @@ using CoolFan.Interfaces;
 using CoolFan.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Threading.Tasks;
 
 namespace CoolFan.Pages
 {
     public class IndexModel : PageModel
     {
-        private  ISensorDataFetcher _sensorDataFetcher;
-        private  IFanControlService _fanControlService;
-        //private ConnectArduino _connectArduino;
+        private readonly ISensorDataFetcher _sensorDataFetcher;
+        private readonly IFanControlService _fanControlService;
 
-        public float Temperature;
-        public float Humidity;
-
-        public string ArduinoIP;
-
-        public IndexModel(ISensorDataFetcher sensorDataFetcher, IFanControlService fanControlService)
-        {
-            _fanControlService = fanControlService;
-            _sensorDataFetcher = sensorDataFetcher;
-        }
-
+        public float Temperature { get; private set; }
+        public float Humidity { get; private set; }
         public SensorData SensorData { get; private set; }
         public string ErrorMessage { get; private set; }
         public string CommandMessage { get; private set; }
 
-        public async Task OnGetAsync()
+        public IndexModel(ISensorDataFetcher sensorDataFetcher, IFanControlService fanControlService)
         {
-            await OnPostFetchData();
+            _sensorDataFetcher = sensorDataFetcher;
+            _fanControlService = fanControlService;
         }
 
-        public async Task<IActionResult> OnPostFetchData()
+        public async Task OnGetAsync()
+        {
+            await FetchSensorDataAsync();
+        }
+
+        public async Task<IActionResult> OnPostFetchDataAsync()
+        {
+            await FetchSensorDataAsync();
+            return Page();
+        }
+
+        private async Task FetchSensorDataAsync()
         {
             try
             {
@@ -83,6 +87,19 @@ namespace CoolFan.Pages
             }
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnGetSensorDataAsync()
+        {
+            try
+            {
+                SensorData = await _sensorDataFetcher.getSensorDataAsync();
+                return new JsonResult(new { temperature = SensorData.Temperature, humidity = SensorData.Humidity });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { error = ex.Message });
+            }
         }
     }
 }

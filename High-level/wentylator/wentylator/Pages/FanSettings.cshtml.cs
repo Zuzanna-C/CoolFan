@@ -14,7 +14,7 @@ namespace wentylator.Pages.FanSettings
     {
         private readonly IConfiguration _configuration;
         private readonly string _configFilePath;
-        private const string DefaultSensorIp = "192.168.0.100";
+        private const string DefaultSensorIp = "192.168.188.253";
 
         public FanSettingsModel(IConfiguration configuration)
         {
