@@ -65,15 +65,27 @@
         $(document).ready(function () {
             var maxPoints = 12;
 
+            function getStoredData(key) {
+                var data = localStorage.getItem(key);
+                return data ? JSON.parse(data) : null;
+            }
+
+            function storeData(key, data) {
+                localStorage.setItem(key, JSON.stringify(data));
+            }
+
+            var temperatureData = getStoredData('temperatureData') || { labels: [], data: [] };
+            var humidityData = getStoredData('humidityData') || { labels: [], data: [] };
+
             var temperatureChart = new Chart(document.getElementById('temperatureChart').getContext('2d'), {
                 type: 'line',
                 data: {
-                    labels: [],
+                    labels: temperatureData.labels,
                     datasets: [{
                         label: 'Temperatura',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
-                        data: []
+                        data: temperatureData.data
                     }]
                 },
                 options: {}
@@ -82,12 +94,12 @@
             var humidityChart = new Chart(document.getElementById('humidityChart').getContext('2d'), {
                 type: 'line',
                 data: {
-                    labels: [],
+                    labels: humidityData.labels,
                     datasets: [{
                         label: 'Wilgotność',
                         backgroundColor: 'rgb(54, 162, 235)',
                         borderColor: 'rgb(54, 162, 235)',
-                        data: []
+                        data: humidityData.data
                     }]
                 },
                 options: {}
@@ -125,6 +137,16 @@
                         humidityChart.data.labels.push(now);
                         humidityChart.data.datasets[0].data.push(data.humidity);
                         humidityChart.update();
+
+                        storeData('temperatureData', {
+                            labels: temperatureChart.data.labels,
+                            data: temperatureChart.data.datasets[0].data
+                        });
+
+                        storeData('humidityData', {
+                            labels: humidityChart.data.labels,
+                            data: humidityChart.data.datasets[0].data
+                        });
                     }
                 });
             }
