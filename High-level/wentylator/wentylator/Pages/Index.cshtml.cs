@@ -34,19 +34,25 @@ namespace CoolFan.Pages
 
         public async Task<IActionResult> OnPostFetchData()
         {
-            
             try
             {
                 SensorData = await _sensorDataFetcher.getSensorDataAsync();
                 Temperature = SensorData.Temperature;
                 Humidity = SensorData.Humidity;
+
+                return new JsonResult(new
+                {
+                    temperature = SensorData.Temperature,
+                    humidity = SensorData.Humidity
+                });
             }
             catch (Exception ex)
             {
-                ErrorMessage = ex.Message;
+                return new JsonResult(new
+                {
+                    error = ex.Message
+                });
             }
-
-            return Page();
         }
 
         public async Task<IActionResult> OnPostTurnFanOnAsync()

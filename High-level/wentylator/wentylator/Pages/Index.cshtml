@@ -95,7 +95,7 @@
 
             function fetchData() {
                 $.ajax({
-                    url: '@Url.Page("Index", "SensorData")',
+                    url: '@Url.Page("Index")?handler=FetchData',
                     method: 'GET',
                     success: function (data) {
                         if (data.error) {
@@ -125,12 +125,16 @@
                         humidityChart.data.labels.push(now);
                         humidityChart.data.datasets[0].data.push(data.humidity);
                         humidityChart.update();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
                     }
                 });
             }
 
             setInterval(fetchData, 5000);
             fetchData();
-        }); 
+        });
     </script>
 }
+
