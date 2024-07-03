@@ -24,11 +24,6 @@ namespace wentylator.Pages.FanControl
         public string ErrorMessage { get; private set; }
         public string CommandMessage { get; private set; }
 
-        public async Task OnGetAsync()
-        {
-            //OnPostTurnFanOffAsync();
-        }
-
         public IActionResult OnPostTurnFanOn()
         {
             try
@@ -58,6 +53,56 @@ namespace wentylator.Pages.FanControl
             }
             return Page();
         }
-        
+
+        AutomaticArduinoControl _automaticArduinoControl = new AutomaticArduinoControl();
+        public float tresholdOn = 26;
+        public IActionResult OnPostsetTreholdUp()
+        {
+            try
+            {
+                _automaticArduinoControl.SetTresholdOn(tresholdOn);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            return Page();
+        }
+
+        public float tresholdOff = 23;
+        public IActionResult OnPostsetTresholdOff()
+        {
+            try
+            {
+                _automaticArduinoControl.SetTresholdOff(tresholdOff);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            return Page();
+        }
+
+        public IActionResult OnPostIsAutoOn()
+        {
+            try
+            {
+                if (IsAutoOn == false)
+                {
+                    IsAutoOn = true;
+                }
+                else
+                {
+                    IsAutoOn = false;
+                }
+                _automaticArduinoControl.setAutoMode();
+
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            return Page();
+        }
     }
 }

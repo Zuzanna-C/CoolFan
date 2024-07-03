@@ -29,9 +29,29 @@
         <div>
             <p>Tryb Automatyczny jest: @(Model.IsAutoOn ? "włączony" : "wyłączony")</p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn">Turn Auto Mode</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="IsAutoOn">Turn Auto Mode</button>
             </form>
         </div>
+    </div>
+    <div>
+        <h3>Ustawienia górnego treshold</h3>
+        <form method="post">
+            <div class="form-group">
+                <label for="sensorIp">Górny Treshold:</label>
+                <input type="text" id="thresholdOn" name="thresholdOn" value="@Model.tresholdOn" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary" asp-page-handler= "setTreholdUp">Zapisz</button>
+        </form>
+    </div>
+    <div>
+        <h3>Ustawienia dolnego treshold</h3>
+        <form method="post">
+            <div class="form-group">
+                <label for="sensorIp">Dolny Treshold:</label>
+                <input type="text" id="thresholdOn" name="thresholdOn" value="@Model.tresholdOff" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary" asp-page-handler="setTresholdOff">Zapisz</button>
+        </form>
     </div>
 </body>
 </html>
