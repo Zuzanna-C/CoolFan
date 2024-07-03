@@ -4,6 +4,8 @@ using wentylator.Data;
 using CoolFan.Models;
 using CoolFan.HelpClasses;
 using CoolFan.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,15 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Usuwamy Identity i konfigurujemy us³ugi Razor Pages
-// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//     .AddEntityFrameworkStores<ApplicationDbContext>();
-
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<ISensorDataFetcher, SensorDataFetcher>();
 builder.Services.AddTransient<IFanControlService, FanControlService>();
 
-// Konfiguracja uwierzytelniania z u¿yciem ciasteczek
+// Konfiguracja uwierzytelniania
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

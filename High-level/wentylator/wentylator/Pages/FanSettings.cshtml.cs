@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace wentylator.Pages.FanSettings
 {
