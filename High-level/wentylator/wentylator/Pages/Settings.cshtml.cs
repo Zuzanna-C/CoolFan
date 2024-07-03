@@ -8,6 +8,7 @@ namespace wentylator.Pages
     {
         public void OnGet()
         {
+
         }
     }
 }
