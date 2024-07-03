@@ -1,11 +1,11 @@
 ﻿@page
 @model wentylator.Pages.FanControl.FanControlModel
 @{
-    ViewData["Title"] = "Sterowanie Wentylatorem";
+    ViewData["Title"] = "Fan Control";
 }
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,18 +21,18 @@
                 document.getElementById("thresholdOff").value = localStorage.getItem("thresholdOff");
             }
             if (localStorage.getItem("IsFanOn") === "true") {
-                document.getElementById("fanStatus").innerText = "Włączony";
+                document.getElementById("fanStatus").innerText = "On";
                 document.querySelector(".fan-icon").classList.add("rotate");
             }
             else {
-                document.getElementById("fanStatus").innerText = "Wyłączony";
+                document.getElementById("fanStatus").innerText = "Off";
                 document.querySelector(".fan-icon");
             }
             if (localStorage.getItem("IsAutoOn") === "true") {
-                document.getElementById("autoStatus").innerText = "włączony";
+                document.getElementById("autoStatus").innerText = "On";
             }
             else {
-                document.getElementById("autoStatus").innerText = "wyłączony";
+                document.getElementById("autoStatus").innerText = "Off";
             }
 
             // Save settings to localStorage
@@ -59,45 +59,45 @@
     </script>
 </head>
 <body>
-    <h1>Sterowanie Wentylatorem</h1>
+    <h1>Fan Management Center</h1>
 
     <div class="container">
         <div>
-            <p>Stan wentylatora: <span id="fanStatus">@Model.IsFanOn ? "Włączony" : "Wyłączony"</span></p>
+            <p>Fan status: <span id="fanStatus">@Model.IsFanOn ? "On" : "Off"</span></p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn" id="turnFanOnButton">Włącz</button>
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOff" id="turnFanOffButton">Wyłącz</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn" id="turnFanOnButton">Turn ON</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOff" id="turnFanOffButton">Turn OFF</button>
             </form>
         </div>
         <div class="@(Model.IsFanOn ? "fan-icon rotate" : "fan-icon")"></div>
     </div>
     <div class="container">
         <div>
-            <p>Tryb Automatyczny jest: <span id="autoStatus">@Model.IsAutoOn ? "włączony" : "wyłączony"</span></p>
+            <p>AutoMode: <span id="autoStatus">@Model.IsAutoOn ? "On" : "Off"</span></p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOn" id="turnAutoOnButton">Włącz tryb automatyczny</button>
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOff" id="turnAutoOffButton">Wyłącz tryb automatyczny</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOn" id="turnAutoOnButton">Turn ON</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOff" id="turnAutoOffButton">Turn OFF</button>
             </form>
         </div>
     </div>
     <div>
-        <h3>Temperatura, przy której włączy się chłodzenie</h3>
+        <h3>Cooling on temperature</h3>
         <form method="post">
             <div class="form-group">
-                <label for="thresholdOn">Max Temperatura:</label>
+                <label for="thresholdOn">Hazardous temperature:</label>
                 <input type="text" id="thresholdOn" name="thresholdOn" value="@Model.tresholdOn" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary" asp-page-handler="SetTresholdOn">Zapisz</button>
+            <button type="submit" class="btn btn-primary" asp-page-handler="SetTresholdOn">Save</button>
         </form>
     </div>
     <div>
-        <h3>Temperatura do której się schłodzi</h3>
+        <h3>Cooling off temperature</h3>
         <form method="post">
             <div class="form-group">
-                <label for="thresholdOff">Optymalna Temperatura:</label>
+                <label for="thresholdOff">Target temperature:</label>
                 <input type="text" id="thresholdOff" name="thresholdOff" value="@Model.tresholdOff" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary" asp-page-handler="SetTresholdOff">Zapisz</button>
+            <button type="submit" class="btn btn-primary" asp-page-handler="SetTresholdOff">Save</button>
         </form>
     </div>
 </body>

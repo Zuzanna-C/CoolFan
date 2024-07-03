@@ -39,21 +39,21 @@
     }
 </style>
 
-<h1 class="custom-header">Pomiary chłodzenia serwera</h1>
+<h1 class="custom-header">Server parameters</h1>
 
 <div>
-    <h3 class="custom-header2">Aktualne Pomiary</h3>
-    <p>Temperatura: <span id="temperature">@Model.Temperature</span> °C</p>
-    <p>Wilgotność: <span id="humidity">@Model.Humidity</span> %</p>
+    <h3 class="custom-header2">Current measurements:</h3>
+    <p>Temperature: <span id="temperature">@Model.Temperature</span> °C</p>
+    <p>Humidity: <span id="humidity">@Model.Humidity</span> %</p>
 </div>
 
 <div class="charts-container">
     <div class="chart">
-        <h3 class="custom-header2">Wykres temperatury</h3>
+        <h3 class="custom-header2">Temperature chart</h3>
         <canvas id="temperatureChart" width="400" height="200"></canvas>
     </div>
     <div class="chart">
-        <h3 class="custom-header2">Wykres wilgotności</h3>
+        <h3 class="custom-header2">Humidity chart</h3>
         <canvas id="humidityChart" width="400" height="200"></canvas>
     </div>
 </div>
@@ -82,7 +82,7 @@
                 data: {
                     labels: temperatureData.labels,
                     datasets: [{
-                        label: 'Temperatura',
+                        label: 'Temperature',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: temperatureData.data
@@ -96,7 +96,7 @@
                 data: {
                     labels: humidityData.labels,
                     datasets: [{
-                        label: 'Wilgotność',
+                        label: 'Humidity',
                         backgroundColor: 'rgb(54, 162, 235)',
                         borderColor: 'rgb(54, 162, 235)',
                         data: humidityData.data

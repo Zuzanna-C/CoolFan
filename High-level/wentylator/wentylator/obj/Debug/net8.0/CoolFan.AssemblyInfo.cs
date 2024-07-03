@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoolFan")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1717821f2e56f6abe5c9036be861be7aeb8e2460")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3832164015fab2127fd03d0f14cd596a9f5f915b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoolFan")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoolFan")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
