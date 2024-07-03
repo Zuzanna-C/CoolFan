@@ -4,17 +4,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            $('#popupAdModal').modal('show');
-        });
-    </script>
-}
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
     .custom-header {
@@ -69,9 +58,30 @@
     </div>
 </div>
 
+<div class="modal fade" id="popupAdModal" tabindex="-1" role="dialog" aria - labelledby="popupAdModalLabel" aria - hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="popupAdModalLabel">
+                    Zuzia i Maja dały radę! < /h5>
+                    <button type="button" class="close" data - dismiss="modal" aria - label="Zamknij">
+                        <span aria - hidden="true">& times; </span>
+                    </button>
+            </div>
+            < div class="modal-body" >
+            <img src="~/lib/dora.jpg" class="img-fluid" alt="Advertisement">
+        </div>
+    </div>
+</div>
+            </div>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
     <script>
         $(document).ready(function () {
             var maxPoints = 12;
@@ -162,25 +172,13 @@
                 });
             }
 
-            // pop-up
-            <div class="modal fade" id = "popupAdModal" tabindex = "-1" role = "dialog" aria - labelledby="popupAdModalLabel" aria - hidden="true" >
-                <div class="modal-dialog modal-dialog-centered" role = "document" >
-                    <div class="modal-content" >
-                        <div class="modal-header" >
-                            <h5 class="modal-title" id = "popupAdModalLabel" > Zuzia i Maja dały radę! < /h5>
-                            <button type = "button" class="close" data - dismiss="modal" aria - label="Zamknij" >
-                                <span aria - hidden="true" >& times; </span>
-                            </button>
-                        </div>
-                        < div class="modal-body" >
-                            <img src="~/lib/dora.jpg" class="img-fluid" alt = "Advertisement" >
-                        </div>
-                        </div>
-                    </div>
-            </div>
-
             setInterval(fetchData, 5000);
             fetchData();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#popupAdModal').modal('show');
         });
     </script>
 }
