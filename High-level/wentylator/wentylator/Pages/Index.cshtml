@@ -37,6 +37,19 @@
         min-width: 400px;
         margin: 10px;
     }
+
+    .modal {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rainbow-text {
+        font-family: 'Bookman Old Style';
+        font-size: 2rem;
+        background-image: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet, red);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
 </style>
 
 <h1 class="custom-header">Pomiary chłodzenia serwera</h1>
@@ -58,22 +71,22 @@
     </div>
 </div>
 
-<div class="modal fade" id="popupAdModal" tabindex="-1" role="dialog" aria - labelledby="popupAdModalLabel" aria - hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal -->
+<div id="exampleModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 375px;">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="popupAdModalLabel">
-                    Zuzia i Maja dały radę! < /h5>
-                    <button type="button" class="close" data - dismiss="modal" aria - label="Zamknij">
-                        <span aria - hidden="true">& times; </span>
-                    </button>
+            <div class="modal-header rainbow-text">
+                <h5 class="modal-title">Zuzia i Maja dały radę!</h5>
             </div>
-            < div class="modal-body" >
-            <img src="~/lib/dora.jpg" class="img-fluid" alt="Advertisement">
+            <div class="modal-body">
+                <img src="lib/dora.jpg" alt="Modal Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="modal-footer">
+                <button id="closeModalBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+            </div>
         </div>
     </div>
 </div>
-            </div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -176,9 +189,19 @@
             fetchData();
         });
     </script>
+
+    <!-- JavaScript do wyświetlenia modala -->
     <script>
-        $(document).ready(function () {
-            $('#popupAdModal').modal('show');
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("exampleModal");
+            modal.classList.add("show");
+            modal.style.display = "block";
+
+            var closeModalBtn = document.getElementById("closeModalBtn");
+            closeModalBtn.addEventListener("click", function () {
+                modal.style.display = "none";
+                modal.classList.remove("show");
+            });
         });
     </script>
 }
