@@ -36,17 +36,26 @@ namespace CoolFan.Pages
             return Page();
         }
 
-        private async Task FetchSensorDataAsync()
+        private async Task<JsonResult> FetchSensorDataAsync()
         {
             try
             {
                 SensorData = await _sensorDataFetcher.getSensorDataAsync();
                 Temperature = SensorData.Temperature;
                 Humidity = SensorData.Humidity;
+
+                return new JsonResult(new
+                {
+                    temperature = SensorData.Temperature,
+                    humidity = SensorData.Humidity
+                });
             }
             catch (Exception ex)
             {
-                ErrorMessage = ex.Message;
+                return new JsonResult(new
+                {
+                    error = ex.Message
+                });
             }
         }
 
