@@ -82,11 +82,16 @@
                 <img src="lib/dora.jpg" alt="Modal Image" style="max-width: 100%; height: auto;">
             </div>
             <div class="modal-footer">
-                <button id="closeModalBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                <button id="closeModalBtn" type="button" class="btn btn-secondary" data-dismiss="modal">zamknij</button>
+                <button id="toggleAudioBtn" type="button" class="btn btn-primary">fanfary</button>
             </div>
         </div>
     </div>
 </div>
+
+<audio id="modalSound">
+    <source src="lib/dora.mp3" type="audio/mpeg">
+</audio>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -199,6 +204,10 @@
             var confettiAnimationId = null;
             var confetti = [];
 
+            // Audio element
+            var modalSound = document.getElementById("modalSound");
+            var toggleAudioBtn = document.getElementById("toggleAudioBtn");
+
             // Set initial canvas dimensions
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -310,17 +319,28 @@
                 }
             }
 
-            // Initially show modal and start confetti
-            modal.classList.add("show");
+
             modal.style.display = "block";
             startConfetti();
+            modalSound.play();
 
-            // Modal close button event
+
             var closeModalBtn = document.getElementById("closeModalBtn");
             closeModalBtn.addEventListener("click", function () {
                 modal.style.display = "none";
-                modal.classList.remove("show");
-                stopConfetti(); // Stop confetti animation
+                stopConfetti();
+                modalSound.pause();
+                modalSound.currentTime = 0;
+            });
+
+            toggleAudioBtn.addEventListener("click", function () {
+                if (modalSound.paused) {
+                    modalSound.play();
+                    toggleAudioBtn.textContent = "fanfary stop";
+                } else {
+                    modalSound.pause();
+                    toggleAudioBtn.textContent = "fanfary";
+                }
             });
 
         });
