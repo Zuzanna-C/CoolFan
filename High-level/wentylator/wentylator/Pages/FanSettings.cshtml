@@ -9,13 +9,12 @@
     <h1>Adres IP wentylatora</h1>
 
     <div>
-        <h3>Ustawienia Czujnika</h3>
         <form method="post">
             <div class="form-group">
                 <label for="sensorIp">IP wentylatora:</label>
-                <input type="text" id="sensorIp" name="sensorIp" value="@Model.SensorIp" class="form-control" />
+                <input type="text" class="form-control" id="sensorIp" name="SensorIp" value="@Model.SensorIp" />
             </div>
-            <button type="submit" class="btn btn-primary">Zapisz</button>
+            <button type="submit" class="btn btn-primary">Sprawdź</button>
         </form>
     </div>
 
@@ -33,9 +32,5 @@
         </div>
     }
 }
-else
-{
-    <div class="alert alert-danger" role="alert">
-        Musisz być zalogowany, aby uzyskać dostęp do tej strony.
-    </div>
-}
+
+

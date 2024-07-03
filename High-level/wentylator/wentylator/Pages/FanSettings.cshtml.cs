@@ -33,7 +33,7 @@ namespace wentylator.Pages.FanSettings
             // Odczytaj aktualne ustawienia czujnika
             var configJson = System.IO.File.ReadAllText(_configFilePath);
             var config = JObject.Parse(configJson);
-            SensorIp = config["SensorIp"]?.ToString();
+            SensorIp = config["SensorIp"]?.ToString() ?? DefaultSensorIp;
         }
 
         public async Task<IActionResult> OnPostAsync()
