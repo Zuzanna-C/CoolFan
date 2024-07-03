@@ -4,6 +4,17 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#popupAdModal').modal('show');
+        });
+    </script>
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
     .custom-header {
@@ -163,9 +174,6 @@
                         </div>
                         < div class="modal-body" >
                             <img src="~/lib/dora.jpg" class="img-fluid" alt = "Advertisement" >
-                        </div>
-                        < div class="modal-footer" >
-                            <button type="button" class="btn btn-secondary" data - dismiss="modal" > Zamknij < /button>
                         </div>
                         </div>
                     </div>
