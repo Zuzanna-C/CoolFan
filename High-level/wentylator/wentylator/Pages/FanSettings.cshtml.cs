@@ -68,7 +68,6 @@ namespace wentylator.Pages.FanSettings
                 return false;
             }
         }
-
         private void EnsureConfigFileExists()
         {
             if (!System.IO.File.Exists(_configFilePath))
