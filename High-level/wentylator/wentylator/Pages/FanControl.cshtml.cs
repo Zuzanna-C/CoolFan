@@ -12,9 +12,8 @@ namespace wentylator.Pages.FanControl
     {
         public bool IsFanOn { get; set; } = false;
         public bool IsAutoOn { get; set; } = false;
+
         private readonly IFanControlService _fanControlService;
-
-
 
         public FanControlModel(IFanControlService fanControlService)
         {
@@ -39,7 +38,7 @@ namespace wentylator.Pages.FanControl
             return Page();
         }
 
-        public  IActionResult OnPostTurnFanOff()
+        public IActionResult OnPostTurnFanOff()
         {
             try
             {
@@ -55,7 +54,7 @@ namespace wentylator.Pages.FanControl
         }
 
         AutomaticArduinoControl _automaticArduinoControl = new AutomaticArduinoControl();
-        public float tresholdOn = 26;
+        public float tresholdOn { get; set; } = 26;
         public IActionResult OnPostsetTreholdUp()
         {
             try
@@ -69,12 +68,20 @@ namespace wentylator.Pages.FanControl
             return Page();
         }
 
-        public float tresholdOff = 23;
+        public float tresholdOff { get; set; } = 23;
         public IActionResult OnPostsetTresholdOff()
         {
             try
             {
-                _automaticArduinoControl.SetTresholdOff(tresholdOff);
+                if (float.TryParse(Request.Form["thresholdOn"], out float threshold))
+                {
+                    tresholdOn = threshold;
+                    _automaticArduinoControl.SetTresholdOn(tresholdOn);
+                }
+                else
+                {
+                    ErrorMessage = "Nieprawid³owa wartoœæ dla górnego ograniczenia.";
+                }
             }
             catch (Exception ex)
             {
@@ -83,20 +90,32 @@ namespace wentylator.Pages.FanControl
             return Page();
         }
 
-        public IActionResult OnPostIsAutoOn()
+        public IActionResult OnPostTurnAutoOn()
         {
             try
-            {
-                if (IsAutoOn == false)
+            { 
+                if (float.TryParse(Request.Form["thresholdOn"], out float threshold))
                 {
-                    IsAutoOn = true;
+                    tresholdOff = threshold;
+                    _automaticArduinoControl.SetTresholdOff(tresholdOff);
                 }
                 else
                 {
-                    IsAutoOn = false;
+                    ErrorMessage = "Nieprawid³owa wartoœæ dla dolnego ograniczenia.";
                 }
-                _automaticArduinoControl.setAutoMode();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            return Page();
+        }
 
+        public IActionResult OnPostTurnAutoOff()
+        {
+            try
+            {
+                IsAutoOn = false;
             }
             catch (Exception ex)
             {

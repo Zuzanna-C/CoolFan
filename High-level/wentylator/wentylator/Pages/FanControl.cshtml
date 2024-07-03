@@ -19,8 +19,8 @@
         <div>
             <p>Stan wentylatora: @(Model.IsFanOn ? "Włączony" : "Wyłączony")</p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn">Turn Fan On</button>
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOff">Turn Fan Off</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn">Włącz</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOff">Wyłącz</button>
             </form>
         </div>
         <div class="@(Model.IsFanOn ? "fan-icon rotate" : "fan-icon")"></div>
@@ -29,7 +29,8 @@
         <div>
             <p>Tryb Automatyczny jest: @(Model.IsAutoOn ? "włączony" : "wyłączony")</p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="IsAutoOn">Turn Auto Mode</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOn">Włącz tryb automatyczny</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOff">Wyłącz tryb automatyczny</button>
             </form>
         </div>
     </div>
