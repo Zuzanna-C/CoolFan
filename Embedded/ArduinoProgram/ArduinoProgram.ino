@@ -18,6 +18,10 @@ const int fanPin = 2;
 
 DHT dht(DHTPIN, DHTTYPE);
 
+float tempOnThreshold = 24.0;
+float tempOffThreshold = 22.0;
+bool isFanOn = false;
+
 void setup() {
   Serial.begin(9600);
   while (!Serial) {
@@ -52,7 +56,7 @@ void loop() {
     char packetBuffer[255];
     int len = Udp.read(packetBuffer, 255);
     if (len > 0) {
-      packetBuffer[len] = '\0'; // Zakończenie ciągu znaków null-terminatorem
+      packetBuffer[len] = '\0'; // Null-terminate the string
       Serial.print("Received packet: ");
       Serial.println(packetBuffer);
 
@@ -92,17 +96,55 @@ void loop() {
       } 
       else if (strcmp(packetBuffer, "on") == 0) {
         digitalWrite(fanPin, LOW);
+        isFanOn = true;
         Serial.println("Fan is ON");
       } 
       else if (strcmp(packetBuffer, "off") == 0) {
         digitalWrite(fanPin, HIGH);
+        isFanOn = false;
         Serial.println("Fan is OFF");
       } 
+      else if (strncmp(packetBuffer, "setTresholdOn", 13) == 0) {
+        float newThreshold = atof(packetBuffer + 14);
+        if (newThreshold != 0) {
+          tempOnThreshold = newThreshold;
+          Serial.print("Set new On threshold: ");
+          Serial.println(tempOnThreshold);
+        } else {
+          Serial.println("Invalid On threshold value");
+        }
+      } 
+      else if (strncmp(packetBuffer, "setTresholdOff", 14) == 0) {
+        float newThreshold = atof(packetBuffer + 15);
+        if (newThreshold != 0) {
+          tempOffThreshold = newThreshold;
+          Serial.print("Set new Off threshold: ");
+          Serial.println(tempOffThreshold);
+        } else {
+          Serial.println("Invalid Off threshold value");
+        }
+      }
       else {
         Serial.println("Invalid command");
       }
     }
   }
+
+  float currentTemperature = dht.readTemperature();
+  if (!isnan(currentTemperature)) {
+    if (currentTemperature > tempOnThreshold && !isFanOn) {
+      digitalWrite(fanPin, LOW); // Turn the fan on
+      isFanOn = true;
+      Serial.println("Automatic: Fan is ON");
+    } else if (currentTemperature < tempOffThreshold && isFanOn) {
+      digitalWrite(fanPin, HIGH); // Turn the fan off
+      isFanOn = false;
+      Serial.println("Automatic: Fan is OFF");
+    }
+  } else {
+    Serial.println("Failed to read temperature for automatic control");
+  }
+
   delay(1000);
 }
 
