@@ -36,7 +36,7 @@ namespace CoolFan.Pages
             return Page();
         }
 
-        private async Task FetchSensorDataAsync()
+        private async Task<JsonResult> FetchSensorDataAsync()
         {
             try
             {
