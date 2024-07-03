@@ -23,16 +23,18 @@ namespace CoolFan.Pages
         public string ErrorMessage { get; private set; }
         public string CommandMessage { get; private set; }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
+            await OnPostFetchDataAsync();
         }
 
         public async Task<IActionResult> OnPostFetchDataAsync()
         {
             try
             {
-                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
-                CommandMessage = null;
+                SensorData = await _sensorDataFetcher.getSensorDataAsync();
+                Temperature = SensorData.Temperature;
+                Humidity = SensorData.Humidity;
             }
             catch (Exception ex)
             {
@@ -46,7 +48,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("on");
+                await _fanControlService.turnON();
                 CommandMessage = "Fan turned on.";
             }
             catch (Exception ex)
@@ -61,7 +63,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("off");
+                await _fanControlService.turnOFF();
                 CommandMessage = "Fan turned off.";
             }
             catch (Exception ex)

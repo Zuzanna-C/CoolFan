@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D+sEzOw7smHAGYePV5pqzmgeJjGIWKFfsICPmtA1ICQ=",
+  "Hash": "ZbgNBG9HMH8S5WqIALIlzvUll2FXe03Q3zdKU8HPySc=",
   "Source": "CoolFan",
   "BasePath": "_content/CoolFan",
   "Mode": "Default",
@@ -2181,6 +2181,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\lib\\credentials.json",
+      "SourceId": "CoolFan",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\",
+      "BasePath": "_content/CoolFan",
+      "RelativePath": "lib/credentials.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\credentials.json"
     },
     {
       "Identity": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\wwwroot\\lib\\jquery\\dist\\jquery.js",

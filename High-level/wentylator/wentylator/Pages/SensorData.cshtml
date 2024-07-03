@@ -9,8 +9,8 @@
 
 <form method="post">
     <button type="submit" asp-page-handler="FetchData">Fetch Sensor Data</button>
-    <button type="submit" asp-page-handler="TurnFanOn">Turn Fan On</button>
-    <button type="submit" asp-page-handler="TurnFanOff">Turn Fan Off</button>
+    <button type="submit" asp-page-handler="TurnFanOnAsync">Turn Fan On</button>
+    <button type="submit" asp-page-handler="TurnFanOffAsync">Turn Fan Off</button>
 </form>
 
 @if (Model.SensorData != null)

@@ -1,3 +1,4 @@
+using CoolFan.HelpClasses;
 using CoolFan.Interfaces;
 using CoolFan.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,8 +13,11 @@ namespace CoolFan.Pages
         private readonly ISensorDataFetcher _sensorDataFetcher;
         private readonly IFanControlService _fanControlService;
 
-        public float Temperature;
-        public float Humidity;
+        public float Temperature { get; private set; }
+        public float Humidity { get; private set; }
+        public SensorData SensorData { get; private set; }
+        public string ErrorMessage { get; private set; }
+        public string CommandMessage { get; private set; }
 
         public IndexModel(ISensorDataFetcher sensorDataFetcher, IFanControlService fanControlService)
         {
@@ -21,37 +25,45 @@ namespace CoolFan.Pages
             _fanControlService = fanControlService;
         }
 
-        public SensorData SensorData { get; private set; }
-        public string ErrorMessage { get; private set; }
-        public string CommandMessage { get; private set; }
-
         public async Task OnGetAsync()
         {
-            await OnPostFetchDataAsync();
+            await FetchSensorDataAsync();
         }
 
         public async Task<IActionResult> OnPostFetchDataAsync()
         {
+            await FetchSensorDataAsync();
+            return Page();
+        }
+
+        private async Task<JsonResult> FetchSensorDataAsync()
+        {
             try
             {
-                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
+                SensorData = await _sensorDataFetcher.getSensorDataAsync();
                 Temperature = SensorData.Temperature;
                 Humidity = SensorData.Humidity;
-                CommandMessage = null;
+
+                return new JsonResult(new
+                {
+                    temperature = SensorData.Temperature,
+                    humidity = SensorData.Humidity
+                });
             }
             catch (Exception ex)
             {
-                ErrorMessage = ex.Message;
+                return new JsonResult(new
+                {
+                    error = ex.Message
+                });
             }
-
-            return Page();
         }
 
         public async Task<IActionResult> OnPostTurnFanOnAsync()
         {
             try
             {
-                await _fanControlService.SendCommandAsync("on");
+                await _fanControlService.turnON();
                 CommandMessage = "Fan turned on.";
             }
             catch (Exception ex)
@@ -66,7 +78,7 @@ namespace CoolFan.Pages
         {
             try
             {
-                await _fanControlService.SendCommandAsync("off");
+                await _fanControlService.turnOFF();
                 CommandMessage = "Fan turned off.";
             }
             catch (Exception ex)
@@ -77,12 +89,12 @@ namespace CoolFan.Pages
             return Page();
         }
 
-        public async Task<JsonResult> OnGetSensorDataAsync()
+        public async Task<IActionResult> OnGetSensorDataAsync()
         {
             try
             {
-                SensorData = await _sensorDataFetcher.FetchSensorDataAsync();
-                return new JsonResult(SensorData);
+                SensorData = await _sensorDataFetcher.getSensorDataAsync();
+                return new JsonResult(new { temperature = SensorData.Temperature, humidity = SensorData.Humidity });
             }
             catch (Exception ex)
             {
