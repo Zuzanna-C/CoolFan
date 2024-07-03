@@ -9,10 +9,10 @@
     <h1>Adres IP wentylatora</h1>
 
     <div>
-        <form method="post">
+        <form method="post" asp-page-handler="GetCurrentSensorIp">
             <div class="form-group">
                 <label for="sensorIp">IP wentylatora:</label>
-                <input type="text" class="form-control" id="sensorIp" name="SensorIp" value="@Model.SensorIp" />
+                <p id="sensorIp" class="form-control-static">@Model.SensorIp</p>
             </div>
             <button type="submit" class="btn btn-primary">Sprawdź</button>
         </form>
@@ -20,17 +20,13 @@
 
     @if (Model.IsDeviceAvailable.HasValue)
     {
-        <div class="alert @(Model.IsDeviceAvailable.Value ? "alert-success" : "alert-danger") mt-3">
-            @if (Model.IsDeviceAvailable.Value)
-            {
-                <p>Urządzenie jest dostępne pod adresem IP @Model.SensorIp.</p>
-            }
-            else
-            {
-                <p>Urządzenie jest niedostępne pod adresem IP @Model.SensorIp.</p>
-            }
-        </div>
+        if (Model.IsDeviceAvailable.Value)
+        {
+            <div class="alert alert-success mt-3">Urządzenie jest dostępne pod adresem @Model.SensorIp</div>
+        }
+        else
+        {
+            <div class="alert alert-danger mt-3">Urządzenie jest niedostępne pod adresem @Model.SensorIp</div>
+        }
     }
 }
-
-

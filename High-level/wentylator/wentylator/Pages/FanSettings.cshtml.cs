@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
-using System.IO;
 using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
 namespace wentylator.Pages.FanSettings
@@ -23,7 +20,6 @@ namespace wentylator.Pages.FanSettings
             EnsureConfigFileExists();
         }
 
-        [BindProperty]
         public string SensorIp { get; set; }
 
         public bool? IsDeviceAvailable { get; set; }
@@ -38,16 +34,18 @@ namespace wentylator.Pages.FanSettings
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            // SprawdŸ dostêpnoœæ urz¹dzenia
+            IsDeviceAvailable = await CheckDeviceAvailability(SensorIp);
 
-            // Zapisz ustawienia czujnika
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostGetCurrentSensorIpAsync()
+        {
+            // Odczytaj aktualne ustawienia czujnika
             var configJson = System.IO.File.ReadAllText(_configFilePath);
             var config = JObject.Parse(configJson);
-            config["SensorIp"] = SensorIp;
-            System.IO.File.WriteAllText(_configFilePath, config.ToString());
+            SensorIp = config["SensorIp"]?.ToString() ?? DefaultSensorIp;
 
             // SprawdŸ dostêpnoœæ urz¹dzenia
             IsDeviceAvailable = await CheckDeviceAvailability(SensorIp);
