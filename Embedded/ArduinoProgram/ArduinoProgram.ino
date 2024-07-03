@@ -109,15 +109,14 @@ void loop() {
           isFanOn = false;
           Serial.println("Fan is OFF");
         }
-        else if (strcmp(command, "autoMode") == 0) {
-          if (isAuto == true){
+        else if (strcmp(command, "autoModeOn") == 0) {
+          isAuto = true;
+          Serial.println(isAuto);
+          Serial.println("auto mode is On");}
+        else if (strcmp(command, "autoModeOff") == 0){
             isAuto = false;
-            Serial.println("auto mode is Off");
-          }
-          else{
-            isAuto = true;
-            Serial.println("Auto mode is On");
-          }
+            digitalWrite(fanPin, HIGH);
+            Serial.println("Auto mode is Off");
         }
         else if (strcmp(command, "setTresholdOn") == 0 && valueStr != NULL) {
           float newThreshold = atof(valueStr);

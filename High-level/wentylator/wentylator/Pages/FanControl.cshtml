@@ -11,49 +11,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/fan.css" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load settings from localStorage
+            if (localStorage.getItem("thresholdOn")) {
+                document.getElementById("thresholdOn").value = localStorage.getItem("thresholdOn");
+            }
+            if (localStorage.getItem("thresholdOff")) {
+                document.getElementById("thresholdOff").value = localStorage.getItem("thresholdOff");
+            }
+            if (localStorage.getItem("IsFanOn") === "true") {
+                document.getElementById("fanStatus").innerText = "Włączony";
+                document.querySelector(".fan-icon").classList.add("rotate");
+            }
+            else {
+                document.getElementById("fanStatus").innerText = "Wyłączony";
+                document.querySelector(".fan-icon");
+            }
+            if (localStorage.getItem("IsAutoOn") === "true") {
+                document.getElementById("autoStatus").innerText = "włączony";
+            }
+            else {
+                document.getElementById("autoStatus").innerText = "wyłączony";
+            }
+
+            // Save settings to localStorage
+            document.getElementById("thresholdOn").addEventListener("change", function () {
+                localStorage.setItem("thresholdOn", this.value);
+            });
+            document.getElementById("thresholdOff").addEventListener("change", function () {
+                localStorage.setItem("thresholdOff", this.value);
+            });
+
+            document.getElementById("turnFanOnButton").addEventListener("click", function () {
+                localStorage.setItem("IsFanOn", "true");
+            });
+            document.getElementById("turnFanOffButton").addEventListener("click", function () {
+                localStorage.setItem("IsFanOn", "false");
+            });
+            document.getElementById("turnAutoOnButton").addEventListener("click", function () {
+                localStorage.setItem("IsAutoOn", "true");
+            });
+            document.getElementById("turnAutoOffButton").addEventListener("click", function () {
+                localStorage.setItem("IsAutoOn", "false");
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>Sterowanie Wentylatorem</h1>
 
     <div class="container">
         <div>
-            <p>Stan wentylatora: @(Model.IsFanOn ? "Włączony" : "Wyłączony")</p>
+            <p>Stan wentylatora: <span id="fanStatus">@Model.IsFanOn ? "Włączony" : "Wyłączony"</span></p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn">Włącz</button>
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOff">Wyłącz</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOn" id="turnFanOnButton">Włącz</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnFanOff" id="turnFanOffButton">Wyłącz</button>
             </form>
         </div>
         <div class="@(Model.IsFanOn ? "fan-icon rotate" : "fan-icon")"></div>
     </div>
     <div class="container">
         <div>
-            <p>Tryb Automatyczny jest: @(Model.IsAutoOn ? "włączony" : "wyłączony")</p>
+            <p>Tryb Automatyczny jest: <span id="autoStatus">@Model.IsAutoOn ? "włączony" : "wyłączony"</span></p>
             <form method="post">
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOn">Włącz tryb automatyczny</button>
-                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOff">Wyłącz tryb automatyczny</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOn" id="turnAutoOnButton">Włącz tryb automatyczny</button>
+                <button type="submit" class="btn btn-primary" asp-page-handler="TurnAutoOff" id="turnAutoOffButton">Wyłącz tryb automatyczny</button>
             </form>
         </div>
     </div>
     <div>
-        <h3>Ustawienia górnego treshold</h3>
+        <h3>Temperatura, przy której włączy się chłodzenie</h3>
         <form method="post">
             <div class="form-group">
-                <label for="sensorIp">Górny Treshold:</label>
+                <label for="thresholdOn">Max Temperatura:</label>
                 <input type="text" id="thresholdOn" name="thresholdOn" value="@Model.tresholdOn" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary" asp-page-handler= "setTreholdUp">Zapisz</button>
+            <button type="submit" class="btn btn-primary" asp-page-handler="SetTresholdOn">Zapisz</button>
         </form>
     </div>
     <div>
-        <h3>Ustawienia dolnego treshold</h3>
+        <h3>Temperatura do której się schłodzi</h3>
         <form method="post">
             <div class="form-group">
-                <label for="sensorIp">Dolny Treshold:</label>
-                <input type="text" id="thresholdOn" name="thresholdOn" value="@Model.tresholdOff" class="form-control" />
+                <label for="thresholdOff">Optymalna Temperatura:</label>
+                <input type="text" id="thresholdOff" name="thresholdOff" value="@Model.tresholdOff" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary" asp-page-handler="setTresholdOff">Zapisz</button>
+            <button type="submit" class="btn btn-primary" asp-page-handler="SetTresholdOff">Zapisz</button>
         </form>
     </div>
 </body>
 </html>
-
