@@ -8,12 +8,14 @@ namespace CoolFan.HelpClasses
     public class FanControlService : IFanControlService
     {
         private static int _port = 4567;
+        private ConnectArduino _connectArduino = new ConnectArduino();
 
         public async Task turnON()
         {
+            string arduinoIP = _connectArduino._arduinoIp;
             using (UdpClient client = new UdpClient())
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.253"), _port);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(arduinoIP), _port);
 
                 byte[] data = Encoding.UTF8.GetBytes("on");
 
@@ -36,9 +38,10 @@ namespace CoolFan.HelpClasses
 
         public async Task turnOFF()
         {
+            string arduinoIP = _connectArduino._arduinoIp;
             using (UdpClient client = new UdpClient())
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.188.253"), _port);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(arduinoIP), _port);
 
                 byte[] data = Encoding.UTF8.GetBytes("off");
 

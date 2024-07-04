@@ -34,7 +34,7 @@ namespace CoolFan.Pages
 
                 return RedirectToPage("/Index");
             }
-            ErrorMessage = "Nieprawid³owa nazwa u¿ytkownika lub has³o.";
+            ErrorMessage = "Invalid username or password.";
             return Page();
         }
     }
