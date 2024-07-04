@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
+using System.IO;
 using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
 namespace wentylator.Pages.FanSettings
@@ -20,34 +23,33 @@ namespace wentylator.Pages.FanSettings
             EnsureConfigFileExists();
         }
 
+        [BindProperty]
         public string SensorIp { get; set; }
 
         public bool? IsDeviceAvailable { get; set; }
 
         public void OnGet()
         {
-            // Read current settings
+            // Odczytaj aktualne ustawienia czujnika
             var configJson = System.IO.File.ReadAllText(_configFilePath);
             var config = JObject.Parse(configJson);
-            SensorIp = config["SensorIp"]?.ToString() ?? DefaultSensorIp;
+            SensorIp = config["SensorIp"]?.ToString();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            // Check availability
-            IsDeviceAvailable = await CheckDeviceAvailability(SensorIp);
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
-            return Page();
-        }
-
-        public async Task<IActionResult> OnPostGetCurrentSensorIpAsync()
-        {
-            // Read current settings
+            // Zapisz ustawienia czujnika
             var configJson = System.IO.File.ReadAllText(_configFilePath);
             var config = JObject.Parse(configJson);
-            SensorIp = config["SensorIp"]?.ToString() ?? DefaultSensorIp;
+            config["SensorIp"] = SensorIp;
+            System.IO.File.WriteAllText(_configFilePath, config.ToString());
 
-            // Check availability
+            // SprawdŸ dostêpnoœæ urz¹dzenia
             IsDeviceAvailable = await CheckDeviceAvailability(SensorIp);
 
             return Page();
@@ -68,6 +70,7 @@ namespace wentylator.Pages.FanSettings
                 return false;
             }
         }
+
         private void EnsureConfigFileExists()
         {
             if (!System.IO.File.Exists(_configFilePath))
