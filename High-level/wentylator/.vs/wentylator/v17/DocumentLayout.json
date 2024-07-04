@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\settings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\settings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|c:\\users\\chlip\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\fansettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\fansettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|c:\\users\\chlip\\documents\\github\\coolfan\\high-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2E82EE29-AB1A-4023-9CA2-7BE4839BD1CB}|wentylator\\CoolFan.csproj|solutionrelative:wentylator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -78,8 +78,7 @@
               "RelativeToolTip": "wentylator\\Pages\\Index.cshtml",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAADoAAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-04T05:51:01.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-04T05:51:01.335Z"
             },
             {
               "$type": "Document",
@@ -103,8 +102,7 @@
               "RelativeToolTip": "wentylator\\Pages\\FanSettings.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-04T04:27:23.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-04T04:27:23.056Z"
             },
             {
               "$type": "Document",
@@ -120,20 +118,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Settings.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Settings.cshtml.cs",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Settings.cshtml.cs",
               "ToolTip": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Settings.cshtml.cs",
               "RelativeToolTip": "wentylator\\Pages\\Settings.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T04:21:28.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Settings.cshtml",
               "DocumentMoniker": "C:\\Users\\chlip\\Documents\\GitHub\\CoolFan\\High-level\\wentylator\\wentylator\\Pages\\Settings.cshtml",
               "RelativeDocumentMoniker": "wentylator\\Pages\\Settings.cshtml",
