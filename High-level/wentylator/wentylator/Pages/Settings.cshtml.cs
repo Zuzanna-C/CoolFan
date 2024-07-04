@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace wentylator.Pages
 {
+	[Authorize]
     public class SettingsModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -16,12 +17,11 @@ namespace wentylator.Pages
 
         public SettingsModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
+			public async Task<IActionResult> OnGet()
+    	    {
             _userManager = userManager;
             _signInManager = signInManager;
-        }
-
-        public async Task<IActionResult> OnGet()
-        {
-            
-    }
+        	}
+		}
+        
 }
